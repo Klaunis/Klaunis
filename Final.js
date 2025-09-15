@@ -287,6 +287,15 @@ document.addEventListener('DOMContentLoaded', () => {
     // initial after first render
     setTimeout(applyLimit, 50);
   }
+  // Collaboration tweaks: add Live Action icon and swap music icon to a musical note
+  const collabGrid = document.getElementById('collaborations-grid');
+  if (collabGrid) {
+    const musicNode = Array.from(collabGrid.children).find(el => (el.textContent||'').trim() === 'Music Videos');
+    const musicIcon = '<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/></svg>';
+    if (musicNode) musicNode.insertAdjacentHTML('afterend', musicIcon);
+    const liveAction = '<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M10 9h4v6h-4z"/></svg>';
+    collabGrid.insertAdjacentHTML('beforeend', liveAction);
+  }
 });
 
 // Tool icon mapping (CDN Simple Icons) and per-project assignments
@@ -444,7 +453,7 @@ function populateContent() {
         const href = (resume && resume.file) ? resume.file : defaultResume;
         resumeLink.href = href;
         const span = resumeLink.querySelector('span');
-        if (span) span.textContent = 'Download Resume';
+        if (span) span.innerHTML = 'Download R&eacute;sum&eacute;';
     }
 }
 
@@ -685,6 +694,11 @@ function setupHighlightsCarousel() {
     track.addEventListener('scroll', updateScrubber);
     window.addEventListener('resize', updateScrubber);
     updateScrubber();
+    // Allow tapping highlights to open viewer
+    track.addEventListener('click', (e) => {
+        const slide = e.target.closest('.highlight-slide');
+        if (slide && slide.dataset.projectId) openCinematicViewer(slide.dataset.projectId);
+    });
 
     // Buttons: go to previous/next visible slide based on current position
     const getActiveIndex = () => {
