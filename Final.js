@@ -607,6 +607,25 @@ function setupHighlightsCarousel() {
     window.addEventListener('resize', updateScrubber);
     updateScrubber();
 
+    // Buttons: go to previous/next visible slide based on current position
+    const getActiveIndex = () => {
+        const center = track.scrollLeft + track.clientWidth / 2;
+        let best = 0, bestDelta = Infinity;
+        slides.forEach((s, i) => {
+            const mid = s.offsetLeft + s.clientWidth / 2;
+            const d = Math.abs(mid - center);
+            if (d < bestDelta) { bestDelta = d; best = i; }
+        });
+        return best;
+    };
+    const scrollToIndex = (i) => {
+        const idx = Math.max(0, Math.min(slides.length - 1, i));
+        const target = slides[idx];
+        if (target) track.scrollTo({ left: target.offsetLeft, behavior: 'smooth' });
+    };
+    prevBtn?.addEventListener('click', (e) => { e.preventDefault(); scrollToIndex(getActiveIndex() - 1); });
+    nextBtn?.addEventListener('click', (e) => { e.preventDefault(); scrollToIndex(getActiveIndex() + 1); });
+
     // Make vertical touchpad scrolling pan horizontally on the track
     track.addEventListener('wheel', (e) => {
         const canScroll = track.scrollWidth > track.clientWidth;

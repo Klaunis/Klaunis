@@ -232,6 +232,14 @@ body::before {
     -webkit-tap-highlight-color: transparent;
     will-change: clip-path, left;
 }
+
+/* Improve highlights track touch/scroll on mobile */
+#highlights-track {
+    overscroll-behavior-x: contain;
+    overscroll-behavior-y: none;
+    -webkit-overflow-scrolling: touch;
+    touch-action: pan-y;
+}
 .comparison-slider .before-media, .comparison-slider .after-media {
     position: absolute;
     top: 0;
