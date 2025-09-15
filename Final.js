@@ -23,7 +23,7 @@ const portfolioConfig = {
     heroVideo: {
         desktop: "Bg Movie.webm",
         mobile: "https://test-videos.co.uk/vids/bigbuckbunny/mp4/h264/360/Big_Buck_Bunny_360_10s_1MB.mp4",
-        poster: "Portfolio/3D/Chess/Render Chess 1.jpg" // optional; place next to the desktop video (or change path)
+        poster: "assets/hero-poster.jpg" // optional poster displayed before playback
     },
     about: {
         title: "A Bit About Me",
@@ -200,8 +200,7 @@ const portfolioConfig = {
 };
 
 // --- Add Live Action entries (external Google Drive links) ---
-try {
-    portfolioConfig.projects.push(
+portfolioConfig.projects.push(
         {
             id: 'live1', caption: 'Smriti', description: 'Live action short film for a Competition.', tags: ['live'], tools: [{ name: 'Premiere Pro', icon: 'Logos/Photoshop.png.png' }, ],
             files: [ { type: 'embed', url: 'https://drive.google.com/file/d/1cjhTnD9lp6dFNPByDucGBw6qx1K0tbVn/view?usp=drive_link' } ],
@@ -238,8 +237,8 @@ try {
             thumbnail: 'Portfolio/Live Action Thumbnails/Kalam.png',
             caseStudyUrl: null
         }
-    );
-} catch {}
+);
+portfolioConfig.highlights = ["project1","project2","project3","project4","live4","live5","live6"];
 
 
 // --- 2. SITE INITIALIZATION & LOGIC ---
@@ -253,7 +252,15 @@ document.addEventListener("DOMContentLoaded", () => {
     $("#year").textContent = new Date().getFullYear();
     // Normalize hero tagline text to avoid any encoding artifacts in source HTML
     const heroTagline = document.querySelector('#top p');
-    if (heroTagline) heroTagline.textContent = 'Cinematic Visual Designer ? 3D ? VFX ? Motion ? Graphics';
+    if (heroTagline) heroTagline.textContent = 'Cinematic Visual Designer • 3D • VFX • Motion • Graphics';
+    // Ensure resume links point to the PDF and labels are clean
+    const resumeHref = 'Portfolio/Resume/Kunal_Sethi_Resume.pdf';
+    const resumeBtn = document.querySelector('#resume-link');
+    if (resumeBtn) resumeBtn.href = resumeHref;
+    const resumeNav = document.getElementById('resume-nav');
+    if (resumeNav) { resumeNav.textContent = 'Resume'; resumeNav.href = resumeHref; }
+    const resumeNavMobile = document.getElementById('resume-nav-mobile');
+    if (resumeNavMobile) { resumeNavMobile.textContent = 'Resume'; resumeNavMobile.href = resumeHref; }
     populateContent();
     setupEventListeners();
     initScrollObserver();
@@ -278,7 +285,20 @@ function populateContent() {
         ${makeSource(portfolioConfig.heroVideo.desktop, '(min-width: 821px)')}
         ${makeSource(portfolioConfig.heroVideo.mobile, '(max-width: 820px)')}
     `;
+    // Defer video loading until it enters the viewport
+    try {
+        heroVideoElement.setAttribute('preload', 'metadata');
+        const io = new IntersectionObserver((entries, obs) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
     heroVideoElement.load();
+                    heroVideoElement.play?.().catch(()=>{});
+                    obs.disconnect();
+                }
+            });
+        }, { threshold: 0.1 });
+        io.observe(heroVideoElement);
+    } catch {}
     // Fix title and tagline text to avoid encoding issues
     try {
         document.title = 'Kunal Sethi ï¿½ Cinematic Visual Designer';
@@ -322,6 +342,9 @@ function populateContent() {
                 <h3 class="text-4xl font-bold tracking-wider">SHOWCASE REEL</h3>
             </div>`;
     }
+    // Provide safe fallbacks for optional sections
+    if (!portfolioConfig.services) portfolioConfig.services = [];
+    if (!portfolioConfig.collaborations) portfolioConfig.collaborations = [];
     $('#services-grid').innerHTML = portfolioConfig.services.map(service => `
         <div class="service-card rounded-xl p-8 text-center">
             ${service.icon}
@@ -473,6 +496,11 @@ function setupEventListeners() {
             window.scrollTo({ top: targetElement.offsetTop, behavior: "smooth" });
         }
     }));
+    // Prevent anchors with href="#" from jumping to the top
+    document.body.addEventListener('click', (e) => {
+        const dummy = e.target.closest('a[href="#"]');
+        if (dummy) e.preventDefault();
+    });
 
     // Prevent anchors with href="#" from jumping to top
     document.body.addEventListener('click', (e) => {
@@ -616,21 +644,26 @@ function setupHighlightsCarousel() {
     // Buttons: go to previous/next visible slide based on current position
     const getActiveIndex = () => {
         const center = track.scrollLeft + track.clientWidth / 2;
-        let best = 0, bestDelta = Infinity;
+        let bestIdx = 0;
+        let bestDelta = Infinity;
         slides.forEach((s, i) => {
             const mid = s.offsetLeft + s.clientWidth / 2;
             const d = Math.abs(mid - center);
-            if (d < bestDelta) { bestDelta = d; best = i; }
+            if (d < bestDelta) { bestDelta = d; bestIdx = i; }
         });
-        return best;
+        return bestIdx;
     };
     const scrollToIndex = (i) => {
         const idx = Math.max(0, Math.min(slides.length - 1, i));
         const target = slides[idx];
-        if (target) track.scrollTo({ left: target.offsetLeft, behavior: 'smooth' });
+        if (!target) return;
+        const left = target.offsetLeft - (track.clientWidth - target.clientWidth) / 2;
+        track.scrollTo({ left, behavior: 'smooth' });
     };
     prevBtn?.addEventListener('click', (e) => { e.preventDefault(); scrollToIndex(getActiveIndex() - 1); });
     nextBtn?.addEventListener('click', (e) => { e.preventDefault(); scrollToIndex(getActiveIndex() + 1); });
+
+    // (deduped handlers above)
 
     // Make vertical touchpad scrolling pan horizontally on the track
     track.addEventListener('wheel', (e) => {

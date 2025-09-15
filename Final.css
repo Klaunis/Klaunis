@@ -240,6 +240,11 @@ body::before {
     -webkit-overflow-scrolling: touch;
     touch-action: pan-y;
 }
+
+/* Ensure the hero media element respects poster and doesn't stretch */
+.hero-media-element[preload="metadata"] {
+    background-color: #000;
+}
 .comparison-slider .before-media, .comparison-slider .after-media {
     position: absolute;
     top: 0;
