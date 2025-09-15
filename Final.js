@@ -474,6 +474,12 @@ function setupEventListeners() {
         }
     }));
 
+    // Prevent anchors with href="#" from jumping to top
+    document.body.addEventListener('click', (e) => {
+        const dummy = e.target.closest('a[href="#"]');
+        if (dummy) e.preventDefault();
+    });
+
     $$("[data-tab]").forEach(btn => btn.addEventListener("click", () => {
         $$("[data-tab]").forEach(b => {
             b.classList.remove("bg-white", "text-black");
