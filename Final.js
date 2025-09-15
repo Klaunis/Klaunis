@@ -529,7 +529,7 @@ function setupEventListeners() {
     $('#nextBtn')?.addEventListener('click', e => { e.stopPropagation(); showNextMedia(); });
     
     document.addEventListener('visibilitychange', () => {
-        document.title = document.hidden ? "Come back! ??" : originalTitle;
+        document.title = document.hidden ? "Come back! \uD83D\uDC4B" : originalTitle;
     });
 
     setupHighlightsCarousel();
@@ -997,6 +997,8 @@ function initScrollObserver() {
 document.addEventListener('DOMContentLoaded', () => {
   try {
     const normalize = () => {
+      // Set a clean, known-good title
+      document.title = 'Kunal Sethi — Cinematic Visual Designer';
       const heroTagline = document.querySelector('#top p.hero-subtitle, #top .hero-subtitle, #top p');
       if (heroTagline) heroTagline.textContent = 'Cinematic Visual Designer • 3D • VFX • Motion • Graphics';
 
@@ -1006,6 +1008,11 @@ document.addEventListener('DOMContentLoaded', () => {
       if (resumeNavMobile) resumeNavMobile.textContent = 'Résumé';
       const resumeBtn = document.querySelector('#resume-link span');
       if (resumeBtn) resumeBtn.textContent = 'Download Résumé';
+
+      // "Let's Talk" buttons (desktop + mobile)
+      document.querySelectorAll('a[href="#contact"]').forEach(a => {
+        if (a) a.textContent = "Let’s Talk";
+      });
 
       // Meta descriptions (non-critical for rendering, but helpful if inspected)
       const og = document.querySelector('meta[property="og:description"]');
