@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kunal Sethi — Cinematic Visual Designer</title>
+    <link rel="stylesheet" href="Final.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <meta name="description" content="Cinematic Visual Designer specializing in 3D, VFX, Motion, and Graphics. Portfolio highlights, case studies, and services." />
+    <!-- Favicon links removed to avoid 404s; add when assets are ready -->
+    <meta property="og:title" content="Kunal Sethi — Cinematic Visual Designer">
+    <meta property="og:description" content="3D • VFX • Motion • Graphics. Explore highlights, portfolio, and services.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://example.com">
+    <meta property="og:image" content="Portfolio/Live Action Thumbnails/Kalam.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Kunal Sethi — Cinematic Visual Designer">
+    <meta name="twitter:description" content="3D • VFX • Motion • Graphics">
+    <meta name="twitter:image" content="Portfolio/Live Action Thumbnails/Kalam.png">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Kunal Sethi",
+      "jobTitle": "Cinematic Visual Designer",
+      "email": "mailto:sethikunal66@gmail.com",
+      "url": "https://example.com",
+      "sameAs": []
+    }
+    </script>
+</head>
+<body class="bg-black text-neutral-200">
+    <div id="custom-cursor" class="custom-cursor"></div>
+    <div id="loader-overlay" class="loader-overlay"><div class="spinner"></div></div>
+    <main id="main-content">
+        <header id="main-nav" class="fixed top-0 left-0 w-full z-50 transition-all duration-300">
+            <nav class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
+                <a href="#top" class="text-white text-lg font-black tracking-widest no-underline">KUNAL SETHI</a>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#featured" class="text-white no-underline opacity-90 hover:opacity-100 transition-opacity">Highlights</a>
+                    <a href="#portfolio" class="text-white no-underline opacity-90 hover:opacity-100 transition-opacity">Portfolio</a>
+                    <a href="#services" class="text-white no-underline opacity-90 hover:opacity-100 transition-opacity">Services</a>
+                    <a id="resume-nav" href="#" class="text-white no-underline opacity-90 hover:opacity-100 transition-opacity" download>Résumé</a>
+                    <a href="#contact" class="text-white no-underline border border-white px-4 py-2 rounded-full hover:bg-white hover:text-black transition-colors">Let’s Talk</a>
+                </div>
+                <button class="md:hidden p-2 rounded-md hover:bg-white/10 transition-colors" aria-label="Open menu" id="hamburger">
+                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </nav>
+            <div id="navMenu" class="hidden md:hidden absolute top-full left-0 w-full bg-black/80 backdrop-blur-lg border-t border-white/10 transform -translate-y-4 opacity-0 transition-all duration-300">
+                <ul class="flex flex-col items-center space-y-6 py-8 list-none p-0 m-0">
+                    <li><a href="#featured" class="text-white text-lg no-underline">Highlights</a></li>
+                    <li><a href="#portfolio" class="text-white text-lg no-underline">Portfolio</a></li>
+                    <li><a href="#services" class="text-white text-lg no-underline">Services</a></li>
+                    <li><a id="resume-nav-mobile" href="#" class="text-white text-lg no-underline" download>Résumé</a></li>
+                    <li><a href="#contact" class="text-white text-lg no-underline">Let’s Talk</a></li>
+                </ul>
+            </div>
+        </header>
+        <section id="top" class="relative min-h-screen grid place-items-center text-center overflow-hidden">
+            <div class="hero-media">
+                <video autoplay muted loop playsinline preload="none" class="hero-media-element"></video>
+            </div>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent z-10"></div>
+            <div class="relative z-20 w-full px-4 sm:px-6 lg:px-8">
+                <h1 id="hero-title" class="text-white font-extrabold text-6xl sm:text-8xl md:text-[9rem] m-0">KUNAL SETHI</h1>
+                <p class="hero-subtitle text-white/80 text-lg sm:text-xl md:text-2xl mt-2 mb-8 font-medium">Cinematic Visual Designer • 3D • VFX • Motion • Graphics</p>
+                <a class="hero-cta bg-transparent text-white border-2 border-white font-bold py-3 px-8 rounded-full hover:bg-white hover:text-black transition-colors" href="#featured">View Work</a>
+            </div>
+            <div class="absolute bottom-6 left-1/2 transform -translate-x-1/2 w-8 h-12 border-2 border-white rounded-full opacity-60">
+                <div class="w-1 h-3 bg-white mx-auto mt-2 animate-bounce"></div>
+            </div>
+        </section>
+        <section id="featured" class="py-12 sm:py-20 w-full fade-in-section">
+            <div class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8">
+                <h2 class="section-title text-3xl sm:text-4xl font-extrabold pb-2">Highlights</h2>
+            </div>
+            <div id="highlights-container" class="relative">
+                <div id="highlights-track" class="flex overflow-x-auto scroll-snap-type-x-mandatory gap-8 px-[5vw] no-scrollbar"></div>
+                <div class="w-full max-w-4xl mx-auto mt-6 px-4 sm:px-6 lg:px-8 flex items-center justify-center gap-4">
+                    <button id="highlight-prev" class="p-2 rounded-full hover:bg-white/10 transition-colors" aria-label="Previous highlight">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                    </button>
+                    <div id="highlight-joystick" class="highlight-joystick w-full" aria-label="Highlights joystick" role="slider" aria-valuemin="-100" aria-valuemax="100" aria-valuenow="0" tabindex="0">
+                        <div class="hj-track"></div>
+                        <div class="hj-handle"></div>
+                    </div>
+                    <button id="highlight-next" class="p-2 rounded-full hover:bg-white/10 transition-colors" aria-label="Next highlight">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    </button>
+                </div>
+            </div>
+        </section>
+        <section id="portfolio" class="py-12 sm:py-20 fade-in-section">
+            <div class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="section-title text-3xl sm:text-4xl font-extrabold pb-2 mb-8">Portfolio</h2>
+                <div class="mb-24 aspect-video relative">
+                    <div id="showcase-reel-parallax-inner" class="absolute inset-0 rounded-lg overflow-hidden group"></div>
+                </div>
+                <p class="text-neutral-400 mb-8 max-w-2xl">Selected work across 3D, VFX, Graphics & Motion. Hover to focus, click to explore.</p>
+                <div class="flex flex-wrap gap-4 mb-8">
+                    <button class="px-4 py-2 rounded-full font-bold bg-white text-black" data-tab="all">All</button>
+                    <button class="px-4 py-2 rounded-full font-bold bg-transparent border-2 border-neutral-700 text-neutral-300 hover:bg-neutral-800 hover:border-neutral-800" data-tab="3d">3D</button>
+                    <button class="px-4 py-2 rounded-full font-bold bg-transparent border-2 border-neutral-700 text-neutral-300 hover:bg-neutral-800 hover:border-neutral-800" data-tab="vfx">VFX</button>
+                    <button class="px-4 py-2 rounded-full font-bold bg-transparent border-2 border-neutral-700 text-neutral-300 hover:bg-neutral-800 hover:border-neutral-800" data-tab="graphics">Graphics</button>
+                    <button class="px-4 py-2 rounded-full font-bold bg-transparent border-2 border-neutral-700 text-neutral-300 hover:bg-neutral-800 hover:border-neutral-800" data-tab="motion">Motion</button>
+                    <button class="px-4 py-2 rounded-full font-bold bg-transparent border-2 border-neutral-700 text-neutral-300 hover:bg-neutral-800 hover:border-neutral-800" data-tab="live">Live Action</button>
+                </div>
+                <div id="portfolio-grid" class="portfolio-item-grid"></div>
+                <div class="flex justify-center items-center gap-3 mt-6">
+                    <button id="portfolioLoadMore" class="px-4 py-2 rounded-full font-bold bg-transparent border-2 border-neutral-700 text-neutral-300 hover:bg-neutral-800 hover:border-neutral-800">Load more</button>
+                    <button id="portfolioShowLess" class="px-4 py-2 rounded-full font-bold bg-transparent border-2 border-neutral-700 text-neutral-300 hover:bg-neutral-800 hover:border-neutral-800" style="display:none">Show less</button>
+                </div>
+            </div>
+        </section>
+        <section id="services" class="py-12 sm:py-20 bg-neutral-950 fade-in-section">
+            <div class="w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="section-title text-3xl sm:text-4xl font-extrabold text-center mb-12 pb-2">Core Services</h2>
+                <div id="services-grid" class="grid grid-cols-1 md:grid-cols-3 gap-8"></div>
+            </div>
+        </section>
+        <section id="about" class="py-12 sm:py-20 fade-in-section">
+            <div class="w-full max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center gap-12">
+                <img id="about-image" src="" alt="Kunal Sethi" class="w-48 h-48 rounded-full object-cover flex-shrink-0 border-4 border-neutral-800">
+                <div>
+                    <h2 id="about-title" class="section-title text-3xl font-bold pb-2"></h2>
+                    <p id="about-text" class="text-neutral-400 mt-8 leading-relaxed"></p>
+                </div>
+            </div>
+        </section>
+        <section id="collaborations" class="py-12 sm:py-20 border-t border-neutral-800 fade-in-section">
+            <div class="w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h3 class="text-center text-neutral-500 text-sm font-semibold tracking-widest uppercase mb-8">Collaborations & Personal Projects</h3>
+                <div id="collaborations-grid" class="flex justify-center items-center gap-12 sm:gap-16 flex-wrap grayscale opacity-60"></div>
+            </div>
+        </section>
+        <footer id="contact" class="border-t border-neutral-800 py-16 fade-in-section">
+            <div class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 id="contact-title" class="text-4xl sm:text-5xl font-bold"></h2>
+                <p id="contact-subtitle" class="text-neutral-400 mt-4 text-lg"></p>
+                <div class="flex flex-col sm:flex-row justify-center items-center gap-4 mt-8">
+                    <a id="contact-email" class="bg-white text-black font-bold py-3 px-8 rounded-full hover:scale-105 transition-transform"></a>
+                    <a id="contact-phone" class="border-2 border-neutral-700 text-neutral-300 font-bold py-3 px-8 rounded-full hover:bg-neutral-800 hover:border-neutral-800 transition-colors"></a>
+                </div>
+                <div class="mt-6">
+                    <a id="resume-link" class="inline-flex items-center gap-2 border-2 border-neutral-700 text-neutral-300 font-bold py-3 px-8 rounded-full hover:bg-neutral-800 hover:border-neutral-800 transition-colors" download>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                        <span>Download Résumé</span>
+                    </a>
+                </div>
+                <p class="text-center text-neutral-500 text-sm mt-16">© <span id="year"></span> Kunal Sethi. All Rights Reserved.</p>
+            </div>
+        </footer>
+    </main>
+    <div class="cinematic-viewer-overlay" id="cinematicViewerOverlay">
+        <div class="cinematic-viewer-content" onclick="event.stopPropagation()">
+            <div class="viewer-media-container">
+                <div id="viewerMediaWrapper"></div>
+                <button id="prevBtn" class="gallery-nav-btn viewer-prev-btn" aria-label="Previous item">&#8249;</button>
+                <button id="nextBtn" class="gallery-nav-btn viewer-next-btn" aria-label="Next item">&#8250;</button>
+                <div class="viewer-progress-bar"><div id="viewerProgressIndicator" class="viewer-progress-indicator"></div></div>
+            </div>
+            <div class="viewer-info">
+                <h3 id="viewerCaption" role="status" aria-live="polite"></h3>
+                <p id="viewerDescription"></p>
+                <div id="viewerTools" class="viewer-tools" aria-label="Tools used" role="list"></div>
+            </div>
+        </div>
+        <button id="closeViewerBtn" class="absolute top-6 right-8 text-white text-4xl font-light cursor-pointer z-50" aria-label="Close viewer">&times;</button>
+    </div>
+    <a href="#top" id="scrollToTop" class="scroll-to-top" aria-label="Scroll to top">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+    </a>
+    <style>
+      /* Overrides and accessibility improvements */
+      .comparison-slider .slider-handle::after { content: '\2194' !important; }
+      .viewer-tools { display: flex; flex-wrap: wrap; gap: 0.5rem 0.75rem; margin-top: 0.75rem; }
+      .viewer-tools [role="listitem"] { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.25rem 0.5rem; border: 1px solid rgba(255,255,255,0.12); border-radius: 9999px; background: rgba(255,255,255,0.06); }
+      .viewer-tools img, .viewer-tools svg { width: 18px; height: 18px; object-fit: contain; display: inline-block; }
+      .viewer-tools .tool-name { font-size: 0.8rem; color: #e5e5e5; }
+      :focus-visible { outline: 2px solid #8ab4ff; outline-offset: 2px; }
+      @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } .hero-media-element { animation: none !important; } body::before { background: none !important; } }
+      /* Highlights joystick styling */
+      .highlight-joystick { position: relative; height: 28px; }
+      .highlight-joystick .hj-track { position: absolute; top: 50%; left: 0; right: 0; height: 4px; background: #262626; border-radius: 9999px; transform: translateY(-50%); }
+      .highlight-joystick .hj-handle { position: absolute; top: 50%; left: 50%; width: 22px; height: 22px; border-radius: 50%; background: #fff; transform: translate(-50%, -50%); transition: transform 200ms ease; box-shadow: 0 0 0 2px rgba(255,255,255,0.15); cursor: grab; }
+      .highlight-joystick.dragging .hj-handle { transition: none; cursor: grabbing; }
+      @keyframes hj-bounce { 0% { transform: translate(-50%, -50%) scale(1); } 50% { transform: translate(-50%, -50%) scale(0.92); } 100% { transform: translate(-50%, -50%) scale(1); } }
+      .hj-handle.hj-bounce { animation: hj-bounce 200ms ease; }
+
+      /* Smooth comparison slider handle/divider */
+      .comparison-slider .slider-handle { transition: left 220ms cubic-bezier(.22,.61,.36,1), transform 150ms ease; }
+      .comparison-slider .slider-handle:active { transform: scale(0.95); }
+      .comparison-slider .slider-divider { transition: left 180ms ease; }
+      .comparison-slider .after-image-container { transition: clip-path 180ms ease; }
+
+      /* Responsive typography */
+      #hero-title { font-size: clamp(2.5rem, 14vw, 9rem); line-height: 1.03; }
+      #top .font-medium { font-size: clamp(1rem, 3.5vw, 2rem); }
+
+      /* Responsive portfolio grid */
+      @media (max-width: 1024px) {
+        .portfolio-item-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.75rem; }
+      }
+      @media (max-width: 768px) {
+        .portfolio-item-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.75rem; }
+        .portfolio-item { aspect-ratio: 4/3; }
+      }
+      @media (max-width: 420px) {
+        .portfolio-item-grid { grid-template-columns: 1fr; gap: 0.75rem; }
+        .portfolio-item { aspect-ratio: 4/3; }
+      }
+    </style>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="Final.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // 1) Fix project 2 first image path and optional thumbnail
+      try {
+        const p2 = (window.portfolioConfig || {}).projects?.find(p => p.id === 'project2');
+        if (p2) {
+          p2.files && p2.files[0] && (p2.files[0].url = 'Portfolio/3D/Chess/Render Chess 1.jpg');
+          if (p2.thumbnail) { p2.thumbnail = 'Portfolio/3D/Chess/Render Chess 1.jpg'; }
+          const slide = document.querySelector('.highlight-slide[data-project-id="project2"] .highlight-slide-content');
+          if (slide) slide.style.backgroundImage = "url('Portfolio/3D/Chess/Render Chess 1.jpg')";
+        }
+      } catch {}
+
+      // 2) Rebuild highlights interactions with looping + joystick + snap
+      // Also wire résumé link in top nav
+      try {
+        const rn = document.getElementById('resume-nav');
+        const rnm = document.getElementById('resume-nav-mobile');
+        const footerLink = document.getElementById('resume-link');
+        const resUrl = footerLink?.getAttribute('href') || 'Portfolio/Resume/Kunal_Sethi_Resume.pdf';
+        if (rn) { rn.href = resUrl; rn.setAttribute('download', ''); }
+        if (rnm) { rnm.href = resUrl; rnm.setAttribute('download', ''); }
+      } catch {}
+      const trackOld = document.getElementById('highlights-track');
+      if (!trackOld) return;
+      const track = trackOld.cloneNode(true);
+      trackOld.replaceWith(track);
+      const slidesBase = Array.from(track.querySelectorAll('.highlight-slide'));
+      if (!slidesBase.length) return;
+      const first = slidesBase[0];
+      const last = slidesBase[slidesBase.length - 1];
+      const firstClone = first.cloneNode(true); firstClone.dataset.clone = 'first';
+      const lastClone = last.cloneNode(true); lastClone.dataset.clone = 'last';
+      track.insertBefore(lastClone, first);
+      track.appendChild(firstClone);
+      const slides = Array.from(track.querySelectorAll('.highlight-slide'));
+      requestAnimationFrame(() => { const left = first.offsetLeft - (track.clientWidth - first.clientWidth) / 2; track.scrollLeft = left; });
+
+      // Observer for active slide
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting) { slides.forEach(s=>s.classList.remove('is-active')); e.target.classList.add('is-active'); } });
+      }, { root: track, threshold: 0.6 });
+      slides.forEach(s => io.observe(s));
+
+      function normalizeLoop() {
+        const realSlides = Array.from(track.querySelectorAll('.highlight-slide:not([data-clone])'));
+        if (!realSlides.length) return;
+        const firstReal = realSlides[0];
+        const lastReal = realSlides[realSlides.length - 1];
+        const firstClone = track.querySelector('.highlight-slide[data-clone="last"]');   // clone of last at the head
+        const lastClone  = track.querySelector('.highlight-slide[data-clone="first"]');  // clone of first at the tail
+        if (!firstClone || !lastClone) return;
+
+        // Find which slide is visually centered
+        const centerX = track.scrollLeft + track.clientWidth / 2;
+        const active = (function(){
+          let best = slides[0], bestDist = Infinity;
+          for (const s of slides) {
+            const mid = s.offsetLeft + s.clientWidth / 2;
+            const d = Math.abs(mid - centerX);
+            if (d < bestDist) { best = s; bestDist = d; }
+          }
+          return best;
+        })();
+
+        // If the centered slide is a clone, jump to the matching real slide
+        // while preserving the exact offset from the slide's center.
+        const jumpTo = (fromClone, toReal) => {
+          const fromCenter = fromClone.offsetLeft + fromClone.clientWidth / 2;
+          const toCenter = toReal.offsetLeft + toReal.clientWidth / 2;
+          const delta = centerX - fromCenter; // how far from center we are
+          const targetLeft = (toCenter + delta) - track.clientWidth / 2;
+          const prev = track.style.scrollBehavior;
+          track.style.scrollBehavior = 'auto'; // ensure instant, no smooth animation
+          track.scrollLeft = targetLeft;
+          track.style.scrollBehavior = prev || '';
+        };
+
+        if (active === firstClone) {
+          jumpTo(firstClone, lastReal);
+        } else if (active === lastClone) {
+          jumpTo(lastClone, firstReal);
+        }
+      }track.addEventListener('scroll', normalizeLoop);
+
+      function centerOnSlide(slide) {
+        const left = slide.offsetLeft - (track.clientWidth - slide.clientWidth) / 2;
+        track.scrollTo({ left, behavior: 'smooth' });
+      }
+      function getRealSlides() {
+        return Array.from(track.querySelectorAll('.highlight-slide')).filter(s => !s.dataset.clone);
+      }
+      function getClosestSlide() {
+        const center = track.scrollLeft + track.clientWidth / 2;
+        let best = slides[0], bestDist = Infinity;
+        slides.forEach(s => { const mid = s.offsetLeft + s.clientWidth/2; const d = Math.abs(mid-center); if (d<bestDist){best=s; bestDist=d;} });
+        return best;
+      }
+      // Arrows snap to next/prev and loop
+      document.getElementById('highlight-prev')?.addEventListener('click', () => {
+        const arr = getRealSlides();
+        const current = getClosestSlide();
+        let idx = Math.max(0, arr.indexOf(current));
+        const target = idx === 0 ? arr[arr.length-1] : arr[idx-1];
+        centerOnSlide(target);
+      });
+      document.getElementById('highlight-next')?.addEventListener('click', () => {
+        const arr = getRealSlides();
+        const current = getClosestSlide();
+        let idx = Math.max(0, arr.indexOf(current));
+        const target = idx === arr.length-1 ? arr[0] : arr[idx+1];
+        centerOnSlide(target);
+      });
+
+      // Joystick control: drag farther => faster scroll, snap on release
+      const joy = document.getElementById('highlight-joystick');
+      if (joy) {
+        const handle = joy.querySelector('.hj-handle');
+        let active = false, joyVal = 0, raf = null;
+        function setHandle(n) {
+          const rect = joy.getBoundingClientRect();
+          const half = (rect.width - handle.offsetWidth) / 2; // max travel from center
+          const clamped = Math.max(-1, Math.min(1, n));
+          handle.style.transform = `translate(-50%, -50%) translateX(${clamped * half}px)`;
+          joy.setAttribute('aria-valuenow', String(Math.round(clamped * 100)));
+          joyVal = clamped;
+        }
+        function loop() {
+          if (!active) { raf = null; return; }
+          track.scrollLeft += joyVal * (track.clientWidth * 0.02);
+          raf = requestAnimationFrame(loop);
+        }
+        function down(e){ active = true; joy.classList.add('dragging'); move(e); if(!raf) raf=requestAnimationFrame(loop); window.addEventListener('pointermove', move); window.addEventListener('pointerup', up, {once:true}); }
+        function move(e){
+          const r = joy.getBoundingClientRect();
+          const radius = handle.offsetWidth / 2;
+          const half = (r.width - handle.offsetWidth) / 2;
+          // Clamp pointer X to keep the center of the handle inside the track
+          const raw = e.clientX - r.left;
+          const centerClamped = Math.max(radius, Math.min(r.width - radius, raw));
+          const dx = centerClamped - r.width / 2; // offset from center in px
+          const n = dx / half; // normalized [-1,1]
+          setHandle(Math.max(-1, Math.min(1, n)));
+        }
+        function up(){ active=false; joy.classList.remove('dragging'); setHandle(0); handle.classList.add('hj-bounce'); setTimeout(()=>handle.classList.remove('hj-bounce'),220); window.removeEventListener('pointermove', move); const arr=getRealSlides(); const c=getClosestSlide(); let left = c.offsetLeft - (track.clientWidth - c.clientWidth)/2; track.scrollTo({left, behavior:'smooth'}); }
+        joy.addEventListener('pointerdown', down);
+      }
+    });
+    </script>
+</body>
+</html>
+
+
+
+
+

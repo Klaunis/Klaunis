@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# After deploying, you can add a sitemap URL like:
+# Sitemap: https://<your-username>.github.io/<your-repo>/sitemap.xml
