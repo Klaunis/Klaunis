@@ -266,6 +266,67 @@ document.addEventListener("DOMContentLoaded", () => {
     initScrollObserver();
 });
 
+// Post-setup: portfolio Show More / Show Less and tool mappings
+document.addEventListener('DOMContentLoaded', () => {
+  // Show more/less
+  const toggleBtn = document.getElementById('portfolio-toggle');
+  if (toggleBtn) {
+    let expanded = false;
+    const applyLimit = () => {
+      const grid = document.getElementById('portfolio-grid');
+      if (!grid) return;
+      const items = Array.from(grid.querySelectorAll('.portfolio-item'));
+      items.forEach((el, i) => {
+        el.style.display = (!expanded && i >= 6) ? 'none' : '';
+      });
+      toggleBtn.textContent = expanded ? 'Show Less' : 'Show More';
+    };
+    toggleBtn.addEventListener('click', () => {
+      expanded = !expanded; applyLimit();
+    });
+    // initial after first render
+    setTimeout(applyLimit, 50);
+  }
+});
+
+// Tool icon mapping (CDN Simple Icons) and per-project assignments
+(function applyToolMappings(){
+  if (!window.portfolioConfig || !Array.isArray(portfolioConfig.projects)) return;
+  const icon = slug => `https://cdn.simpleicons.org/${slug}`;
+  const addTools = (p, tools) => {
+    if (!p) return; if (!p.tools) p.tools = [];
+    const have = new Set(p.tools.map(t => t.name.toLowerCase()));
+    tools.forEach(t => { if (!have.has(t.name.toLowerCase())) p.tools.push(t); });
+  };
+  const byId = id => portfolioConfig.projects.find(p => p.id === id);
+  const byCaption = cap => portfolioConfig.projects.find(p => (p.caption||'').toLowerCase() === cap.toLowerCase());
+
+  // All live actions: add Premiere Pro
+  portfolioConfig.projects.filter(p => /^live\d+$/i.test(p.id||'')).forEach(p => {
+    addTools(p, [{ name:'Premiere Pro', icon: icon('adobepremierepro') }]);
+  });
+  // Rang: add After Effects
+  const rang = portfolioConfig.projects.find(p => (p.caption||'').toLowerCase().includes('rang'));
+  if (rang) addTools(rang, [{ name:'After Effects', icon: icon('adobeaftereffects') }]);
+  // Chess
+  const chess = byCaption('Game of Chess');
+  if (chess) addTools(chess, [ { name:'Maya', icon: icon('autodeskmaya') }, { name:'Blender', icon: icon('blender') } ]);
+  // Social Login
+  const social = byCaption('Social Login');
+  if (social) addTools(social, [ { name:'After Effects', icon: icon('adobeaftereffects') }, { name:'Illustrator', icon: icon('adobeillustrator') } ]);
+  // Big Day
+  const bigDay = byCaption('Invitation for the Big Day');
+  if (bigDay) addTools(bigDay, [ { name:'Illustrator', icon: icon('adobeillustrator') }, { name:'After Effects', icon: icon('adobeaftereffects') } ]);
+  // KeyGenie
+  const keyg = portfolioConfig.projects.find(p => (p.caption||'').toLowerCase().includes('keygenie'));
+  if (keyg) addTools(keyg, [ { name:'Blender', icon: icon('blender') }, { name:'Houdini', icon: icon('houdini') }, { name:'Nuke', icon: icon('nuke') }, { name:'After Effects', icon: icon('adobeaftereffects') } ]);
+  // Horror / Nature (best-effort by caption contains)
+  const horror = portfolioConfig.projects.find(p => (p.caption||'').toLowerCase().includes('horror'));
+  if (horror) addTools(horror, [ { name:'Photoshop', icon: icon('adobephotoshop') } ]);
+  const nature = portfolioConfig.projects.find(p => (p.caption||'').toLowerCase().includes('nature'));
+  if (nature) addTools(nature, [ { name:'Photoshop', icon: icon('adobephotoshop') } ]);
+})();
+
 // Ensure key UI text is clean regardless of file encoding
 document.addEventListener('DOMContentLoaded', () => {
   try {
@@ -724,11 +785,7 @@ function setupHighlightsCarousel() {
         if (!joystick) return;
         joystick.classList.remove('dragging');
         joyActive = false;
-        // ease back to center
-        setHandle(0);
-        const handle = joystick.querySelector('.hj-handle');
-        handle.classList.add('hj-bounce');
-        setTimeout(() => handle.classList.remove('hj-bounce'), 220);
+        // keep handle where user left it; stop movement
         window.removeEventListener('pointermove', moveJoy);
     }
     joystick?.addEventListener('pointerdown', startJoy);
