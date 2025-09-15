@@ -239,7 +239,10 @@ body::before {
     overscroll-behavior-y: none;
     -webkit-overflow-scrolling: touch;
     touch-action: pan-y;
+    scroll-snap-type: x mandatory;
 }
+
+.highlight-slide { scroll-snap-align: center; }
 
 /* Ensure the hero media element respects poster and doesn't stretch */
 .hero-media-element[preload="metadata"] {

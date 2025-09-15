@@ -266,6 +266,19 @@ document.addEventListener("DOMContentLoaded", () => {
     initScrollObserver();
 });
 
+// Ensure key UI text is clean regardless of file encoding
+document.addEventListener('DOMContentLoaded', () => {
+  try {
+    const tag = document.querySelector('#top p');
+    if (tag) tag.textContent = 'Cinematic Visual Designer \u2022 3D \u2022 VFX \u2022 Motion \u2022 Graphics';
+    const navResume = document.getElementById('resume-nav');
+    if (navResume) navResume.textContent = 'Resume';
+    const navResumeM = document.getElementById('resume-nav-mobile');
+    if (navResumeM) navResumeM.textContent = 'Resume';
+    document.querySelectorAll('a[href="#contact"]').forEach(a => a.textContent = "Let's Talk");
+  } catch {}
+});
+
 function populateContent() {
     const heroVideoElement = $('.hero-media-element');
     // Ensure poster + no eager preload for performance
@@ -369,9 +382,8 @@ function populateContent() {
         const defaultResume = 'Portfolio/Resume/Kunal_Sethi_Resume.pdf';
         const href = (resume && resume.file) ? resume.file : defaultResume;
         resumeLink.href = href;
-        if (resume && resume.label) {
-            resumeLink.querySelector('span').textContent = resume.label;
-        }
+        const span = resumeLink.querySelector('span');
+        if (span) span.textContent = 'Download Resume';
     }
 }
 
@@ -580,28 +592,16 @@ function setupHighlightsCarousel() {
 
     if (!track || slides.length === 0) return;
 
-    // Duplicate slides before and after to form an endless belt
-    const baseSlides = Array.from(slides);
-    const prefix = baseSlides.map(s => { const c = s.cloneNode(true); c.setAttribute('data-clone', 'prefix'); return c; });
-    const suffix = baseSlides.map(s => { const c = s.cloneNode(true); c.setAttribute('data-clone', 'suffix'); return c; });
-    prefix.reverse().forEach(c => track.insertBefore(c, track.firstChild));
-    suffix.forEach(c => track.appendChild(c));
+    // Simpler carousel: no cloning; rely on snap + arrows
     slides = $$('.highlight-slide', track);
 
-    // Compute one-block metrics and jump to the middle block
-    const originals = $$('.highlight-slide:not([data-clone])', track);
-    const getBlockMetrics = () => {
-        const first = originals[0];
-        const last = originals[originals.length - 1];
-        const start = first.offsetLeft;
-        const end = last.offsetLeft + last.clientWidth;
-        return { start, width: end - start };
-    };
+    // Jump to first slide
     setTimeout(() => {
-        const { start } = getBlockMetrics();
+        const first = slides[0];
+        if (!first) return;
         const prev = track.style.scrollBehavior; track.style.scrollBehavior = 'auto';
-        track.scrollTo({ left: start });
-        track.style.scrollBehavior = prev;
+        track.scrollTo({ left: first.offsetLeft });
+        track.style.scrollBehavior = prev || '';
     }, 0);
 
     const observer = new IntersectionObserver((entries) => {
@@ -621,23 +621,7 @@ function setupHighlightsCarousel() {
         if (scrubber) scrubber.value = String(val);
     };
 
-    // Wrap around seamlessly when crossing block edges
-    const wrapIfNeeded = () => {
-        const originalsNow = $$('.highlight-slide:not([data-clone])', track);
-        if (!originalsNow.length) return;
-        const first = originalsNow[0];
-        const last = originalsNow[originalsNow.length - 1];
-        const start = first.offsetLeft;
-        const width = (last.offsetLeft + last.clientWidth) - start;
-        const buffer = 2;
-        if (track.scrollLeft < start - buffer) {
-            track.scrollLeft += width;
-        } else if (track.scrollLeft >= start + width - buffer) {
-            track.scrollLeft -= width;
-        }
-    };
-
-    track.addEventListener('scroll', () => { wrapIfNeeded(); updateScrubber(); });
+    track.addEventListener('scroll', updateScrubber);
     window.addEventListener('resize', updateScrubber);
     updateScrubber();
 
