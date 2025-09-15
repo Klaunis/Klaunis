@@ -1,0 +1,80 @@
+// --- 1. MASTER CONFIGURATION & CUSTOMIZATION GUIDE ---
+// === EDIT ME: All content and media live here ===
+// Put your files in these folders (or change paths to your liking):
+// - Logos for software icons: `Logos/` (e.g., Logos/Photoshop.png.png)
+// - Portfolio media: `Portfolio/...` (thumbnails + images/videos per project)
+// - Hero videos/poster: in the root alongside this file (or set paths below)
+// Notes:
+// - poster is the image shown before video starts or if it fails to load
+// - You can add/remove projects, files, and tools freely
+const portfolioConfig = {
+    portfolio: {
+        pageSize: 6
+    },
+    resume: {
+        file: 'Kunal_Sethi_Resume.pdf',
+        label: 'Download Rï¿½sumï¿½'
+    },
+    // Default labels for the comparison slider. Can be overridden per file.
+    sliderLabels: {
+        before: "BEFORE",
+        after: "AFTER"
+    },
+    heroVideo: {
+        desktop: "Bg Movie.webm",
+        mobile: "https://test-videos.co.uk/vids/bigbuckbunny/mp4/h264/360/Big_Buck_Bunny_360_10s_1MB.mp4",
+        poster: "assets/hero-poster.jpg" // optional poster displayed before playback
+    },
+    about: {
+        title: "A Bit About Me",
+        text: "Iï¿½m a visual designer who lives at the intersection of art and tech. My passion is crafting cinematic visuals that don't just look good, but feel rightï¿½evoking emotion and telling a story in every frame. For me, collaboration isn't just part of the job; it's the best part. Let's build something unforgettable together.",
+        image: "https://placehold.co/400x400/0a0a0a/ffffff?text=Kunal"
+    },
+    contact: {
+        title: "Have a vision in mind?",
+        subtitle: "I'm currently available for select projects. If you're passionate about what you do, we'll get along great.",
+        email: "sethikunal66@gmail.com",
+        phone: "+91 9717895116"
+    },
+    projects: [
+        { 
+            id: "showcase", 
+            reelVideo: "Bg Movie.webm"
+        },
+        {
+            id: "project1", 
+            caption: "Social Login",
+            description: " This was made just using Motion Graphics on the attempt to make a real life close-up screen shot for a short vfx film.",
+            tags: ["graphics", "motion"],
+            tools: [
+                { name: 'Illustrator', icon: 'Logos/Photoshop.png.png' },
+                { name: 'After Effects', icon: 'Logos/After Effects.png.png' }
+            ],
+            files: [
+                { 
+                    type: 'video', 
+                    url: "Portfolio/Motion/Computer Screen Shot.webm",
+                    caption: "Social Login",
+                    description: "This is the initial concept art that set the tone for the entire project."
+                },
+            ],
+            thumbnail: "Portfolio/Motion/Computer.png",
+            caseStudyUrl: "#"
+        },
+        {
+            id: "project2", 
+            caption: "Game of Chess",
+            description: "A render done while Checkmating.",
+            tags: ["3d"],
+            tools: [
+                { name: 'Maya', icon: 'Logos/Maya.png.jpg' },
+                { name: 'Blender', icon: 'Logos/3dsmax.png.png' },
+                
+            ],
+            files: [
+                { 
+                    type: 'image', 
+                    url: "Portfolio/3D/Chess/Render Chess 1.jpg",
+                    caption: "Game of Chess",
+                    description: "The final shot after lighting and texturing."
+                },

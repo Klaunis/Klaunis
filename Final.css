@@ -256,10 +256,13 @@ body::before {
 }
 .portfolio-item-tools img,
 .portfolio-item-tools svg {
-  width: 18px;
-  height: 18px;
-  filter: drop-shadow(0 1px 2px rgba(0,0,0,.5));
+    width: 18px;
+    height: 18px;
+    filter: drop-shadow(0 1px 2px rgba(0,0,0,.5));
 }
+
+/* Hide tool logos on portfolio cards (per user request) */
+.portfolio-item-tools { display: none !important; }
 
 /* Ensure the hero media element respects poster and doesn't stretch */
 .hero-media-element[preload="metadata"] {
