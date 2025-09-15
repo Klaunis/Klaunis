@@ -57,8 +57,6 @@ const portfolioConfig = {
                     caption: "Social Login",
                     description: "This is the initial concept art that set the tone for the entire project."
                 },
-                { type: 'image', url: "https://placehold.co/1280x720/1a1a1a/ffffff?text=Image+2" },
-                { type: 'video', url: "https://test-videos.co.uk/vids/bigbuckbunny/mp4/h264/720/Big_Buck_Bunny_720_10s_2MB.mp4" }
             ],
             thumbnail: "Portfolio/Motion/Computer.png",
             caseStudyUrl: "#"
