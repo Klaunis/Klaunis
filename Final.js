@@ -445,6 +445,22 @@ function populateContent() {
     }).join('');
     __portfolioFilter = 'all';
     renderPortfolioGrid(__portfolioFilter);
+    // Live Action grid
+    const liveGrid = document.getElementById('live-action-grid');
+    if (liveGrid) {
+        const lives = portfolioConfig.projects.filter(p => /^live\d+$/i.test(p.id||''));
+        liveGrid.innerHTML = lives.map((project, index) => `
+          <div class="portfolio-item group relative" data-project-id="${project.id}" role="button" tabindex="0" style="animation-delay: ${index * 40}ms">
+            <img loading="lazy" src="${project.thumbnail}" alt="${project.caption}" />
+            <div class="absolute top-3 right-3 flex gap-2">
+              ${(project.tags||[]).map(tag => `<span class='bg-black/50 text-white text-[10px] font-semibold px-2 py-1 rounded-full'>${tag.toUpperCase()}</span>`).join('')}
+            </div>
+            <div class="portfolio-item-tools">${(project.tools||[]).slice(0,5).map(t => t.icon?.startsWith('<svg')?t.icon:`<img src='${t.icon}' alt='${t.name||''}'>`).join('')}</div>
+            <div class="portfolio-overlay absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-3 opacity-0 group-hover:opacity-100 transition-opacity">
+              <span class="text-white font-bold">${project.caption}</span>
+            </div>
+          </div>`).join('');
+    }
     // Resume link
     const resume = portfolioConfig.resume;
     const resumeLink = $('#resume-link');
@@ -495,12 +511,17 @@ function renderPortfolioGrid(filter) {
         __portfolioInitialCount = pageSize;
     }
     const projectsToRender = allProjects.slice(0, __portfolioVisibleCount);
+    const toolIcons = (p) => (p.tools||[]).slice(0,5).map(t => {
+        const src = (t && t.icon) ? t.icon : '';
+        return src.startsWith('<svg') ? src : `<img src="${src}" alt="${t?.name||''}">`;
+    }).join('');
     grid.innerHTML = projectsToRender.map((project, index) => `
-        <div class="portfolio-item group" data-project-id="${project.id}" role="button" tabindex="0" style="animation-delay: ${index * 40}ms">
+        <div class="portfolio-item group relative" data-project-id="${project.id}" role="button" tabindex="0" style="animation-delay: ${index * 40}ms">
             <img loading="lazy" src="${project.thumbnail}" alt="${project.caption}" />
             <div class="absolute top-3 right-3 flex gap-2">
                 ${project.tags?.map(tag => `<span class="bg-black/50 text-white text-[10px] font-semibold px-2 py-1 rounded-full">${tag.toUpperCase()}</span>`).join('') || ''}
             </div>
+            <div class="portfolio-item-tools">${toolIcons(project)}</div>
             <div class="portfolio-overlay absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-3 opacity-0 group-hover:opacity-100 transition-opacity">
                 <span class="text-white font-bold">${project.caption}</span>
             </div>
