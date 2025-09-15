@@ -13,7 +13,7 @@ const portfolioConfig = {
     },
     resume: {
         file: 'Kunal_Sethi_Resume.pdf',
-        label: 'Download RÈsumÈ'
+        label: 'Download RÔøΩsumÔøΩ'
     },
     // Default labels for the comparison slider. Can be overridden per file.
     sliderLabels: {
@@ -27,7 +27,7 @@ const portfolioConfig = {
     },
     about: {
         title: "A Bit About Me",
-        text: "Iím a visual designer who lives at the intersection of art and tech. My passion is crafting cinematic visuals that don't just look good, but feel rightóevoking emotion and telling a story in every frame. For me, collaboration isn't just part of the job; it's the best part. Let's build something unforgettable together.",
+        text: "IÔøΩm a visual designer who lives at the intersection of art and tech. My passion is crafting cinematic visuals that don't just look good, but feel rightÔøΩevoking emotion and telling a story in every frame. For me, collaboration isn't just part of the job; it's the best part. Let's build something unforgettable together.",
         image: "https://placehold.co/400x400/0a0a0a/ffffff?text=Kunal"
     },
     contact: {
@@ -229,7 +229,7 @@ try {
             caseStudyUrl: null
         },
         {
-            id: 'live5', caption: 'KeyGenie (VFX + Live Action)', description: 'VFX plus live action.', tags: ['live'], tools: [],
+            id: 'live5', caption: 'KeyGenie (VFX + Live Action)', description: 'VFX plus live action.', tags: ["live","vfx"], tools: [],
             files: [ { type: 'embed', url: 'https://drive.google.com/file/d/1knQ2yOpeLwQ9hFicbvCN1QimoIu9b58v/view?usp=drive_link' } ],
             thumbnail: 'Portfolio/Live Action Thumbnails/KeyGenie.png',
             caseStudyUrl: null
@@ -283,9 +283,9 @@ function populateContent() {
     heroVideoElement.load();
     // Fix title and tagline text to avoid encoding issues
     try {
-        document.title = 'Kunal Sethi ó Cinematic Visual Designer';
+        document.title = 'Kunal Sethi ÔøΩ Cinematic Visual Designer';
         const heroTag = document.querySelector('#top p.font-medium');
-        if (heroTag) heroTag.textContent = 'Cinematic Visual Designer ó 3D ó VFX ó Motion ó Graphics';
+        if (heroTag) heroTag.textContent = 'Cinematic Visual Designer ÔøΩ 3D ÔøΩ VFX ÔøΩ Motion ÔøΩ Graphics';
     } catch {}
     $('#about-image').src = portfolioConfig.about.image;
     $('#about-title').textContent = portfolioConfig.about.title;
@@ -991,6 +991,34 @@ function initScrollObserver() {
     
     $$(".fade-in-section, .section-title").forEach(el => observer.observe(el));
 }
+
+
+// --- 3. Page text normalization to avoid mojibake on GitHub Pages ---
+// Some editors saved smart quotes and bullets with a legacy code page.
+// Normalize key UI strings at runtime so they render correctly everywhere.
+document.addEventListener('DOMContentLoaded', () => {
+  try {
+    const normalize = () => {
+      const heroTagline = document.querySelector('#top p.hero-subtitle, #top .hero-subtitle, #top p');
+      if (heroTagline) heroTagline.textContent = 'Cinematic Visual Designer ‚Ä¢ 3D ‚Ä¢ VFX ‚Ä¢ Motion ‚Ä¢ Graphics';
+
+      const resumeNav = document.getElementById('resume-nav');
+      if (resumeNav) resumeNav.textContent = 'R√©sum√©';
+      const resumeNavMobile = document.getElementById('resume-nav-mobile');
+      if (resumeNavMobile) resumeNavMobile.textContent = 'R√©sum√©';
+      const resumeBtn = document.querySelector('#resume-link span');
+      if (resumeBtn) resumeBtn.textContent = 'Download R√©sum√©';
+
+      // Meta descriptions (non-critical for rendering, but helpful if inspected)
+      const og = document.querySelector('meta[property="og:description"]');
+      const tw = document.querySelector('meta[name="twitter:description"]');
+      const desc = 'Cinematic Visual Designer ‚Ä¢ 3D ‚Ä¢ VFX ‚Ä¢ Motion ‚Ä¢ Graphics';
+      if (og) og.setAttribute('content', desc);
+      if (tw) tw.setAttribute('content', desc);
+    };
+    normalize();
+  } catch (e) { /* no-op */ }
+});
 
 
 

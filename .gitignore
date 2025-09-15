@@ -1,0 +1,32 @@
+# OS and editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Builds / cache
+dist/
+build/
+node_modules/
+
+# Large or source files to avoid in the repo
+*.psd
+*.ai
+*.aeproject
+*.aep
+*.wav
+*.aif
+*.zip
+*.rar
+*.7z
+*.mb
+*.mb.swatches
+*.blend1
+*.blend2
+
+# Optionally ignore raw videos; keep web-optimized copies
+# Uncomment if needed:
+# *.mov
+# *.mxf
+# *.avi
+
