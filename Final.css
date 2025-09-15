@@ -207,6 +207,10 @@ body::before {
 .cinematic-viewer-overlay.is-open .viewer-info { opacity: 1; transform: translateX(0); }
 .viewer-info h3 { color: var(--fg); font-size: 1.5rem; margin-bottom: 0.5rem; }
 .viewer-info p { line-height: 1.6; }
+.viewer-tools { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-top: 12px; }
+.viewer-tools img, .viewer-tools svg { width: 22px; height: 22px; filter: drop-shadow(0 1px 2px rgba(0,0,0,.5)); opacity: 0.95; }
+.viewer-tools span[role="listitem"] { display: inline-flex; align-items: center; gap: 6px; }
+.viewer-tools .tool-name { font-size: 0.8rem; color: #cfcfcf; display: none; }
 .gallery-nav-btn {
     position: absolute; top: 50%; transform: translateY(-50%); background-color: rgba(255, 255, 255, 0.1); color: white; border: none; border-radius: 50%; width: 48px; height: 48px; font-size: 2rem; cursor: pointer; transition: background-color 0.2s; display: flex; align-items: center; justify-content: center; z-index: 102;
 }
