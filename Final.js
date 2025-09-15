@@ -13,7 +13,7 @@ const portfolioConfig = {
     },
     resume: {
         file: 'Kunal_Sethi_Resume.pdf',
-        label: 'Download R�sum�'
+        label: 'Download Rï¿½sumï¿½'
     },
     // Default labels for the comparison slider. Can be overridden per file.
     sliderLabels: {
@@ -27,7 +27,7 @@ const portfolioConfig = {
     },
     about: {
         title: "A Bit About Me",
-        text: "I�m a visual designer who lives at the intersection of art and tech. My passion is crafting cinematic visuals that don't just look good, but feel right�evoking emotion and telling a story in every frame. For me, collaboration isn't just part of the job; it's the best part. Let's build something unforgettable together.",
+        text: "Iï¿½m a visual designer who lives at the intersection of art and tech. My passion is crafting cinematic visuals that don't just look good, but feel rightï¿½evoking emotion and telling a story in every frame. For me, collaboration isn't just part of the job; it's the best part. Let's build something unforgettable together.",
         image: "https://placehold.co/400x400/0a0a0a/ffffff?text=Kunal"
     },
     contact: {
@@ -281,9 +281,9 @@ function populateContent() {
     heroVideoElement.load();
     // Fix title and tagline text to avoid encoding issues
     try {
-        document.title = 'Kunal Sethi � Cinematic Visual Designer';
+        document.title = 'Kunal Sethi ï¿½ Cinematic Visual Designer';
         const heroTag = document.querySelector('#top p.font-medium');
-        if (heroTag) heroTag.textContent = 'Cinematic Visual Designer � 3D � VFX � Motion � Graphics';
+        if (heroTag) heroTag.textContent = 'Cinematic Visual Designer ï¿½ 3D ï¿½ VFX ï¿½ Motion ï¿½ Graphics';
     } catch {}
     $('#about-image').src = portfolioConfig.about.image;
     $('#about-title').textContent = portfolioConfig.about.title;
@@ -998,26 +998,26 @@ document.addEventListener('DOMContentLoaded', () => {
   try {
     const normalize = () => {
       // Set a clean, known-good title
-      document.title = 'Kunal Sethi — Cinematic Visual Designer';
+      document.title = 'Kunal Sethi â€” Cinematic Visual Designer';
       const heroTagline = document.querySelector('#top p.hero-subtitle, #top .hero-subtitle, #top p');
-      if (heroTagline) heroTagline.textContent = 'Cinematic Visual Designer • 3D • VFX • Motion • Graphics';
+      if (heroTagline) heroTagline.textContent = 'Cinematic Visual Designer â€¢ 3D â€¢ VFX â€¢ Motion â€¢ Graphics';
 
       const resumeNav = document.getElementById('resume-nav');
-      if (resumeNav) resumeNav.textContent = 'Résumé';
+      if (resumeNav) resumeNav.textContent = 'RÃ©sumÃ©';
       const resumeNavMobile = document.getElementById('resume-nav-mobile');
-      if (resumeNavMobile) resumeNavMobile.textContent = 'Résumé';
+      if (resumeNavMobile) resumeNavMobile.textContent = 'RÃ©sumÃ©';
       const resumeBtn = document.querySelector('#resume-link span');
-      if (resumeBtn) resumeBtn.textContent = 'Download Résumé';
+      if (resumeBtn) resumeBtn.textContent = 'Download RÃ©sumÃ©';
 
       // "Let's Talk" buttons (desktop + mobile)
       document.querySelectorAll('a[href="#contact"]').forEach(a => {
-        if (a) a.textContent = "Let’s Talk";
+        if (a) a.textContent = "Letâ€™s Talk";
       });
 
       // Meta descriptions (non-critical for rendering, but helpful if inspected)
       const og = document.querySelector('meta[property="og:description"]');
       const tw = document.querySelector('meta[name="twitter:description"]');
-      const desc = 'Cinematic Visual Designer • 3D • VFX • Motion • Graphics';
+      const desc = 'Cinematic Visual Designer â€¢ 3D â€¢ VFX â€¢ Motion â€¢ Graphics';
       if (og) og.setAttribute('content', desc);
       if (tw) tw.setAttribute('content', desc);
     };
