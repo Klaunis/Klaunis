@@ -270,7 +270,7 @@ document.addEventListener("DOMContentLoaded", () => {
 document.addEventListener('DOMContentLoaded', () => {
   try {
     const tag = document.querySelector('#top p');
-    if (tag) tag.textContent = 'Cinematic Visual Designer \u2022 3D \u2022 VFX \u2022 Motion \u2022 Graphics';
+    if (tag) tag.textContent = 'Cinematic Visual Designer - 3D - VFX - Motion - Graphics';
     const navResume = document.getElementById('resume-nav');
     if (navResume) navResume.textContent = 'Resume';
     const navResumeM = document.getElementById('resume-nav-mobile');
