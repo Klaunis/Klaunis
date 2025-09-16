@@ -174,28 +174,32 @@ const portfolioConfig = {
         {
             id: 'live1', caption: 'Smriti', description: 'Live action short film for a Competition.', tags: ['live'], 
             tools: [{ name: 'Premiere Pro', icon: ICONS.PREMIERE_PRO }],
-            files: [ { type: 'embed', url: 'https://drive.google.com/file/d/1cjhTnD9lp6dFNPByDucGBw6qx1K0tbVn/view?usp=drive_link' } ],
+            files: [ { type: 'image', url: "Portfolio/Live Action Thumbnails/Smriti.png" },
+                { type: 'embed', url: 'https://drive.google.com/file/d/1cjhTnD9lp6dFNPByDucGBw6qx1K0tbVn/view?usp=drive_link' } ],
             thumbnail: 'Portfolio/Live Action Thumbnails/Smriti.png',
         },
         {
             id: 'live2', caption: 'School Project, Music Video', description: 'Music video project.', tags: ['live'], 
             // UPDATE: Added requested tool
             tools: [{ name: 'Premiere Pro', icon: ICONS.PREMIERE_PRO }],
-            files: [ { type: 'embed', url: 'https://drive.google.com/file/d/12V2DCK0RVkH04rPWgCrEl03CksKhWXBr/view?usp=drive_link' } ],
+            files: [ { type: 'image', url: "Portfolio/Live Action Thumbnails/I worry.png" },
+                { type: 'embed', url: 'https://drive.google.com/file/d/12V2DCK0RVkH04rPWgCrEl03CksKhWXBr/view?usp=drive_link' } ],
             thumbnail: 'Portfolio/Live Action Thumbnails/I worry.png',
         },
         {
             id: 'live3', caption: 'Rang (with Motion Graphics)', description: 'Live action + motion graphics.', tags: ['live', 'motion'], 
             // UPDATE: Added requested tool
             tools: [{ name: 'After Effects', icon: ICONS.AFTER_EFFECTS }],
-            files: [ { type: 'embed', url: 'https://drive.google.com/file/d/1gSdjfouUxhe669ReEXZdV3kQM_p_BtMS/view?usp=drive_link' } ],
+            files: [ { type: 'image', url: "Portfolio/Live Action Thumbnails/Rang.png" },
+                { type: 'embed', url: 'https://drive.google.com/file/d/1gSdjfouUxhe669ReEXZdV3kQM_p_BtMS/view?usp=drive_link' } ],
             thumbnail: 'Portfolio/Live Action Thumbnails/Rang.png',
         },
         {
             id: 'live4', caption: 'Lack of', description: 'Live action piece.', tags: ['live'], 
             // UPDATE: Added requested tool
             tools: [{ name: 'Premiere Pro', icon: ICONS.PREMIERE_PRO }],
-            files: [ { type: 'embed', url: 'https://drive.google.com/file/d/1-OVP217GzKXAJ6f1KASnaRe2e9XCrSHG/view?usp=drive_link' } ],
+            files: [ { type: 'image', url: "Portfolio/Live Action Thumbnails/Lack Of.png" },
+                { type: 'embed', url: 'https://drive.google.com/file/d/1-OVP217GzKXAJ6f1KASnaRe2e9XCrSHG/view?usp=drive_link' } ],
             thumbnail: 'Portfolio/Live Action Thumbnails/Lack Of.png',
         },
         {
@@ -207,7 +211,8 @@ const portfolioConfig = {
                 { name: 'After Effects', icon: ICONS.AFTER_EFFECTS },
                 { name: 'Blender', icon: ICONS.BLENDER },
             ],
-            files: [ { type: 'embed', url: 'https://drive.google.com/file/d/1knQ2yOpeLwQ9hFicbvCN1QimoIu9b58v/view?usp=drive_link' } ],
+            files: [ 
+                { type: 'embed', url: 'https://drive.google.com/file/d/1knQ2yOpeLwQ9hFicbvCN1QimoIu9b58v/view?usp=drive_link' } ],
             thumbnail: 'Portfolio/Live Action Thumbnails/KeyGenie.png',
         },
         {
