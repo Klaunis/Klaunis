@@ -184,7 +184,7 @@ const portfolioConfig = {
             tools: [{ name: 'Premiere Pro', icon: ICONS.PREMIERE_PRO }],
             files: [ { type: 'image', url: "Portfolio/Live Action Thumbnails/I worry.png" },
                 { type: 'embed', url: 'https://drive.google.com/file/d/12V2DCK0RVkH04rPWgCrEl03CksKhWXBr/view?usp=drive_link' } ],
-            thumbnail: 'Portfolio/Live Action Thumbnails/I worry.png',
+            thumbnail: 'Portfolio/Live Action Thumbnails/I worry thumbnail.png',
         },
         {
             id: 'live3', caption: 'Rang (with Motion Graphics)', description: 'Live action + motion graphics.', tags: ['live', 'motion'], 
@@ -200,7 +200,7 @@ const portfolioConfig = {
             tools: [{ name: 'Premiere Pro', icon: ICONS.PREMIERE_PRO }],
             files: [ { type: 'image', url: "Portfolio/Live Action Thumbnails/Lack Of.png" },
                 { type: 'embed', url: 'https://drive.google.com/file/d/1-OVP217GzKXAJ6f1KASnaRe2e9XCrSHG/view?usp=drive_link' } ],
-            thumbnail: 'Portfolio/Live Action Thumbnails/Lack Of.png',
+            thumbnail: 'Portfolio/Live Action Thumbnails/Lack Of thumbnail.png',
         },
         {
             id: 'live5', caption: 'KeyGenie (VFX + Live Action)', description: 'VFX plus live action.', tags: ["live","vfx"], 
