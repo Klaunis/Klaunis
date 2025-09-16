@@ -203,13 +203,13 @@ const portfolioConfig = {
                 { name: 'Blender', icon: ICONS.BLENDER },
             ],
             files: [ { type: 'embed', url: 'https://drive.google.com/file/d/1knQ2yOpeLwQ9hFicbvCN1QimoIu9b58v/view?usp=drive_link' } ],
-            thumbnail: 'Portfolio/Live Action Thumbnails/KeyGenie.png',
+            thumbnail: 'Portfolio/Live Action Thumbnails/KeyGenie.webp',
         },
         {
             id: 'live6', caption: 'Kalam', description: 'Live action film.', tags: ['live'], 
             tools: [{ name: 'Premiere Pro', icon: ICONS.PREMIERE_PRO }],
             files: [ { type: 'embed', url: 'https://drive.google.com/file/d/1D1Uh7e9wNRdIIeQlKKb432gEiHNBfrS-/view?usp=drive_link' } ],
-            thumbnail: 'Portfolio/Live Action Thumbnails/Kalam.png',
+            thumbnail: 'Portfolio/Live Action Thumbnails/Kalam.webp',
         }
     ],
     highlights: ["project1", "project2", "project3", "project4", "live1", "live2", "live3", "live4", "live5", "live6"],
