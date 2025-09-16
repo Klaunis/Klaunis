@@ -102,8 +102,8 @@ body::before {
 @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
 
 .hero-media { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -2; overflow: hidden;}
-.hero-media-element { 
-    width: 100%; height: 100%; object-fit: cover; 
+.hero-media-element {
+    width: 100%; height: 100%; object-fit: cover;
     animation: kenburns 40s ease-out infinite;
 }
 @keyframes kenburns {
@@ -131,7 +131,7 @@ body::before {
 .section-title::after {
     content: '';
     position: absolute;
-    bottom: -8px; 
+    bottom: -8px;
     left: 0;
     width: 100%;
     height: 2px;
@@ -174,8 +174,8 @@ body::before {
 .cinematic-viewer-content {
     position: relative; margin: auto; width: 100%; max-width: 1400px;
     display: grid;
-    grid-template-columns: minmax(0, 3fr) minmax(0, 1fr); 
-    gap: 5.5rem; 
+    grid-template-columns: minmax(0, 3fr) minmax(0, 1fr);
+    gap: 5.5rem;
     align-items: center;
     transform: scale(0.95); transition: transform 0.4s ease;
 }
@@ -188,10 +188,10 @@ body::before {
     transition: transform 0.5s ease 0.2s, opacity 0.5s ease 0.2s;
 }
 .cinematic-viewer-overlay.is-open .viewer-media { transform: scale(1); opacity: 1; }
-.viewer-info { 
+.viewer-info {
     position: relative;
     padding-left: 2.5rem;
-    color: var(--muted); 
+    color: var(--muted);
     opacity: 0; transform: translateX(20px);
     transition: opacity 0.4s ease 0.3s, transform 0.4s ease 0.3s;
 }
@@ -330,7 +330,8 @@ body::before {
 #highlights-track {
     scroll-snap-type: none !important;
     overscroll-behavior-x: contain;
-    touch-action: pan-x pinch-zoom;
+    /* FIX: Allow vertical scrolling on touch devices */
+    touch-action: pan-y pinch-zoom;
     cursor: grab;
 }
 #highlights-track:active { cursor: grabbing; }
@@ -407,21 +408,21 @@ body::before {
 @media (max-width: 1024px) {
     .custom-cursor { display: none; }
     body { cursor: auto; }
-    .cinematic-viewer-content { 
-        grid-template-columns: 1fr; 
-        text-align: center; 
+    .cinematic-viewer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
     }
-    .viewer-info { 
-        margin-top: 1rem; 
-        max-width: 600px; 
-        margin-left: auto; 
+    .viewer-info {
+        margin-top: 1rem;
+        max-width: 600px;
+        margin-left: auto;
         margin-right: auto;
-        padding-left: 0; 
+        padding-left: 0;
     }
     .viewer-info::before {
-        display: none; 
+        display: none;
     }
-    .gallery-nav-btn { 
+    .gallery-nav-btn {
         background-color: rgba(0,0,0,0.3);
     }
     .viewer-prev-btn { left: 1rem; }
