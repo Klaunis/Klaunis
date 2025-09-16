@@ -183,16 +183,16 @@ const portfolioConfig = {
         {
             id: 'live3', caption: 'Rang (with Motion Graphics)', description: 'Live action + motion graphics.', tags: ['live', 'motion'], 
             tools: [{ name: 'After Effects', icon: ICONS.AFTER_EFFECTS }],
-            files: [ { type: 'image', url: 'Portfolio/Live Action Thumbnails/rang.webp' } ,
+            files: [ { type: 'image', url: 'Portfolio/Live Action Thumbnails/Rang.webp' } ,
                 { type: 'embed', url: 'https://drive.google.com/file/d/1gSdjfouUxhe669ReEXZdV3kQM_p_BtMS/view?usp=drive_link' } ],
             thumbnail: 'Portfolio/Live Action Thumbnails/Rang.webp',
         },
         {
             id: 'live4', caption: 'Lack of', description: 'Live action piece.', tags: ['live'], 
             tools: [{ name: 'Premiere Pro', icon: ICONS.PREMIERE_PRO }],
-            files: [ { type: 'image', url: 'Portfolio/Live Action Thumbnails/lack of.webp' } ,
+            files: [ { type: 'image', url: 'Portfolio/Live Action Thumbnails/Lack of.webp' } ,
                 { type: 'embed', url: 'https://drive.google.com/file/d/1-OVP217GzKXAJ6f1KASnaRe2e9XCrSHG/view?usp=drive_link' } ],
-            thumbnail: 'Portfolio/Live Action Thumbnails/Lack Of thumbnail.webp',
+            thumbnail: 'Portfolio/Live Action Thumbnails/Lack Of Thumbnail.webp',
         },
         {
             id: 'live5', caption: 'KeyGenie (VFX + Live Action)', description: 'VFX plus live action.', tags: ["live","vfx"], 
