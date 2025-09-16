@@ -47,12 +47,12 @@ const portfolioConfig = {
         phone: "+91 9717895116"
     },
     projects: [
-        { 
-            id: "showcase", 
+        {
+            id: "showcase",
             reelVideo: "Bg Movie.webm"
         },
         {
-            id: "project1", 
+            id: "project1",
             caption: "Social Login",
             description: " This was made just using Motion Graphics on the attempt to make a real life close-up screen shot for a short vfx film.",
             tags: ["graphics", "motion"],
@@ -61,8 +61,8 @@ const portfolioConfig = {
                 { name: 'After Effects', icon: ICONS.AFTER_EFFECTS }
             ],
             files: [
-                { 
-                    type: 'video', 
+                {
+                    type: 'video',
                     url: "Portfolio/Motion/Computer Screen Shot.webm",
                     caption: "Social Login",
                     description: "This is the initial concept art that set the tone for the entire project."
@@ -72,24 +72,24 @@ const portfolioConfig = {
             caseStudyUrl: "#"
         },
         {
-            id: "project2", 
+            id: "project2",
             caption: "Game of Chess",
             description: "A render done while Checkmating.",
             tags: ["3d"],
             tools: [
                 { name: 'Maya', icon: ICONS.MAYA },
                 { name: 'Blender', icon: ICONS.BLENDER },
-                
+
             ],
             files: [
-                { 
-                    type: 'image', 
+                {
+                    type: 'image',
                     url: "Portfolio/3D/Chess/Render Chess 1.jpg",
                     caption: "Game of Chess",
                     description: "The final shot after lighting and texturing."
                 },
-                { 
-                    type: 'slider', 
+                {
+                    type: 'slider',
                     before: "Portfolio/3D/Chess/Chess UV.avif",
                     after: "Portfolio/3D/Chess/chess wire.avif",
                     beforeLabel: "Wireframe",
@@ -102,7 +102,7 @@ const portfolioConfig = {
             caseStudyUrl: null
         },
         {
-            id: "project3", 
+            id: "project3",
             caption: "Invitation for the Big Day",
             description: "These are some Invitation Videos for the Event 'Save the Date'.",
             tags: ["graphics", "motion"],
@@ -110,13 +110,13 @@ const portfolioConfig = {
                 { name: 'After Effects', icon: ICONS.AFTER_EFFECTS },
                 { name: 'Illustrator', icon: ICONS.ILLUSTRATOR }
             ],
-            files: [{ 
+            files: [{
                 type: 'video', url: "Portfolio/Motion/Marriage/Std 3.webm"
             },
-            { 
+            {
                 type: 'video', url: "Portfolio/Motion/Marriage/Std.webm"
             },
-            { 
+            {
                 type: 'video', url: "Portfolio/Motion/Marriage/Std 2.webm"
             }
 
@@ -125,7 +125,7 @@ const portfolioConfig = {
             caseStudyUrl: "#"
         },
         {
-            id: "project4", 
+            id: "project4",
             caption: "Dirty Utensil",
             description: "IDK learnt it from some online course, good stuff",
             tags: ["3d"],
@@ -135,14 +135,14 @@ const portfolioConfig = {
                 { name: 'Marmoset Toolbag', icon: ICONS.MARMOSET }
             ],
             files: [{ type: 'image', url: "Portfolio/3D/Utensil/Render 1.png" },
-                    { type: 'image', url: "Portfolio/3D/Utensil/Render 2.png" },
-                    { type: 'image', url: "Portfolio/3D/Utensil/Render 3.png" },
+            { type: 'image', url: "Portfolio/3D/Utensil/Render 2.png" },
+            { type: 'image', url: "Portfolio/3D/Utensil/Render 3.png" },
             ],
             thumbnail: "Portfolio/3D/Utensil/Render 1.png",
             caseStudyUrl: null
         },
         {
-            id: "project5", 
+            id: "project5",
             caption: "Horror GFX",
             description: "Was asked to make a GFX icon for SCP based game",
             tags: ["graphics"],
@@ -155,60 +155,60 @@ const portfolioConfig = {
             caseStudyUrl: null
         },
         {
-            id: "project6", 
+            id: "project6",
             caption: "Nature GFX",
             description: "Was asked to make a GFX icon for Adventure based game",
             tags: ["graphics"],
             tools: [
                 { name: 'Photoshop', icon: ICONS.PHOTOSHOP },
             ],
-            files: [{ type: 'image', url: "Portfolio/Graphic/Game Logos/Wildlife GFX.png"},],
+            files: [{ type: 'image', url: "Portfolio/Graphic/Game Logos/Wildlife GFX.png" },],
             thumbnail: "Portfolio/Graphic/Game Logos/Wildlife GFX.png",
             caseStudyUrl: null
         },
         {
-            id: 'live1', caption: 'Smriti', description: 'Live action short film for a Competition.', tags: ['live'], 
+            id: 'live1', caption: 'Smriti', description: 'Live action short film for a Competition.', tags: ['live'],
             tools: [{ name: 'Premiere Pro', icon: ICONS.PREMIERE_PRO }],
-            files: [ { type: 'image', url: 'Portfolio/Live Action Thumbnails/Smriti.webp' } ,
-                { type: 'embed', url: 'https://drive.google.com/file/d/1cjhTnD9lp6dFNPByDucGBw6qx1K0tbVn/view?usp=drive_link' } ],
+            files: [{ type: 'image', url: 'Portfolio/Live Action Thumbnails/Smriti.webp' },
+            { type: 'embed', url: 'https://drive.google.com/file/d/1cjhTnD9lp6dFNPByDucGBw6qx1K0tbVn/view?usp=drive_link' }],
             thumbnail: 'Portfolio/Live Action Thumbnails/Smriti.webp',
         },
         {
-            id: 'live2', caption: 'School Project, Music Video', description: 'Music video project.', tags: ['live'], 
+            id: 'live2', caption: 'School Project, Music Video', description: 'Music video project.', tags: ['live'],
             tools: [{ name: 'Premiere Pro', icon: ICONS.PREMIERE_PRO }],
-            files: [ { type: 'image', url: 'Portfolio/Live Action Thumbnails/I worry.webp' } ,
-                { type: 'embed', url: 'https://drive.google.com/file/d/12V2DCK0RVkH04rPWgCrEl03CksKhWXBr/view?usp=drive_link' } ],
+            files: [{ type: 'image', url: 'Portfolio/Live Action Thumbnails/I worry.webp' },
+            { type: 'embed', url: 'https://drive.google.com/file/d/12V2DCK0RVkH04rPWgCrEl03CksKhWXBr/view?usp=drive_link' }],
             thumbnail: 'Portfolio/Live Action Thumbnails/I worry thumbnail.webp',
         },
         {
-            id: 'live3', caption: 'Rang (with Motion Graphics)', description: 'Live action + motion graphics.', tags: ['live', 'motion'], 
+            id: 'live3', caption: 'Rang (with Motion Graphics)', description: 'Live action + motion graphics.', tags: ['live', 'motion'],
             tools: [{ name: 'After Effects', icon: ICONS.AFTER_EFFECTS }],
-            files: [ { type: 'image', url: 'Portfolio/Live Action Thumbnails/Rang.webp' } ,
-                { type: 'embed', url: 'https://drive.google.com/file/d/1gSdjfouUxhe669ReEXZdV3kQM_p_BtMS/view?usp=drive_link' } ],
+            files: [{ type: 'image', url: 'Portfolio/Live Action Thumbnails/Rang.webp' },
+            { type: 'embed', url: 'https://drive.google.com/file/d/1gSdjfouUxhe669ReEXZdV3kQM_p_BtMS/view?usp=drive_link' }],
             thumbnail: 'Portfolio/Live Action Thumbnails/Rang.webp',
         },
         {
-            id: 'live4', caption: 'Lack of', description: 'Live action piece.', tags: ['live'], 
+            id: 'live4', caption: 'Lack of', description: 'Live action piece.', tags: ['live'],
             tools: [{ name: 'Premiere Pro', icon: ICONS.PREMIERE_PRO }],
-            files: [ { type: 'image', url: 'Portfolio/Live Action Thumbnails/Lack Of.webp' } ,
-                { type: 'embed', url: 'https://drive.google.com/file/d/1-OVP217GzKXAJ6f1KASnaRe2e9XCrSHG/view?usp=drive_link' } ],
+            files: [{ type: 'image', url: 'Portfolio/Live Action Thumbnails/Lack Of.webp' },
+            { type: 'embed', url: 'https://drive.google.com/file/d/1-OVP217GzKXAJ6f1KASnaRe2e9XCrSHG/view?usp=drive_link' }],
             thumbnail: 'Portfolio/Live Action Thumbnails/Lack Of Thumbnail.webp',
         },
         {
-            id: 'live5', caption: 'KeyGenie (VFX + Live Action)', description: 'VFX plus live action.', tags: ["live","vfx"], 
+            id: 'live5', caption: 'KeyGenie (VFX + Live Action)', description: 'VFX plus live action.', tags: ["live", "vfx"],
             tools: [
                 { name: 'Nuke', icon: ICONS.NUKE },
                 { name: 'Houdini', icon: ICONS.HOUDINI },
                 { name: 'After Effects', icon: ICONS.AFTER_EFFECTS },
                 { name: 'Blender', icon: ICONS.BLENDER },
             ],
-            files: [ { type: 'embed', url: 'https://drive.google.com/file/d/1knQ2yOpeLwQ9hFicbvCN1QimoIu9b58v/view?usp=drive_link' } ],
+            files: [{ type: 'embed', url: 'https://drive.google.com/file/d/1knQ2yOpeLwQ9hFicbvCN1QimoIu9b58v/view?usp=drive_link' }],
             thumbnail: 'Portfolio/Live Action Thumbnails/KeyGenie.webp',
         },
         {
-            id: 'live6', caption: 'Kalam', description: 'Live action film.', tags: ['live'], 
+            id: 'live6', caption: 'Kalam', description: 'Live action film.', tags: ['live'],
             tools: [{ name: 'Premiere Pro', icon: ICONS.PREMIERE_PRO }],
-            files: [ { type: 'embed', url: 'https://drive.google.com/file/d/1D1Uh7e9wNRdIIeQlKKb432gEiHNBfrS-/view?usp=drive_link' } ],
+            files: [{ type: 'embed', url: 'https://drive.google.com/file/d/1D1Uh7e9wNRdIIeQlKKb432gEiHNBfrS-/view?usp=drive_link' }],
             thumbnail: 'Portfolio/Live Action Thumbnails/Kalam.webp',
         }
     ],
@@ -277,29 +277,33 @@ function populateContent() {
         `;
         heroVideoElement.load();
     }
-    
+
     $('#about-image').src = portfolioConfig.about.image;
     $('#about-title').textContent = portfolioConfig.about.title;
     $('#about-text').textContent = portfolioConfig.about.text;
     $('#contact-title').textContent = portfolioConfig.contact.title;
     $('#contact-subtitle').textContent = portfolioConfig.contact.subtitle;
-    
+
     const emailLink = $('#contact-email');
     emailLink.href = `mailto:${portfolioConfig.contact.email}`;
     emailLink.textContent = portfolioConfig.contact.email;
-    
+
     const phoneLink = $('#contact-phone');
     phoneLink.href = `tel:${portfolioConfig.contact.phone}`;
     phoneLink.textContent = portfolioConfig.contact.phone;
 
     const track = $('#highlights-track');
     if (track) {
-        const slidesHTML = portfolioConfig.highlights.map(id => {
+        // PERFORMANCE FIX: Use lazy loading for highlight images
+        const slidesHTML = portfolioConfig.highlights.map((id, index) => {
             const project = portfolioConfig.projects.find(p => p.id === id);
             if (!project) return '';
+            // Only load the first 2 images eagerly
+            const loadingAttr = index < 2 ? 'eager' : 'lazy';
             return `
                 <div class="highlight-slide" data-project-id="${project.id}">
-                    <div class="highlight-slide-content" style="background-image: url('${project.thumbnail}')">
+                    <div class="highlight-slide-content">
+                        <img src="${project.thumbnail}" alt="${project.caption}" class="highlight-slide-img" loading="${loadingAttr}" />
                         <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10"></div>
                         <div class="relative z-20 p-6 flex flex-col justify-end h-full">
                             <h3 class="font-bold text-2xl">${project.caption}</h3>
@@ -362,7 +366,7 @@ function renderPortfolioGrid(filter) {
     const allProjects = (filter === 'all')
         ? portfolioConfig.projects.filter(p => p.id !== 'showcase')
         : portfolioConfig.projects.filter(p => p.tags && p.tags.includes(filter));
-    
+
     const { pageSize } = computeGridPaging();
     if (__portfolioVisibleCount === 0 || filter !== __portfolioFilter) {
         __portfolioVisibleCount = pageSize;
@@ -415,7 +419,7 @@ function setupEventListeners() {
         loader.style.opacity = '0';
         setTimeout(() => loader.style.display = 'none', 500);
     });
-    
+
     window.addEventListener('scroll', () => {
         updateNavOnScroll();
         handleScrollEffects();
@@ -430,7 +434,7 @@ function setupEventListeners() {
             cursor.style.left = `${e.clientX}px`;
             cursor.style.top = `${e.clientY}px`;
         });
-        
+
         $$('a, button, input[type="range"], .portfolio-item, .highlight-slide, .service-card, .slider-handle').forEach(el => {
             el.addEventListener('mouseenter', () => cursor.classList.add('is-interactive'));
             el.addEventListener('mouseleave', () => cursor.classList.remove('is-interactive'));
@@ -439,7 +443,7 @@ function setupEventListeners() {
         cursor.style.display = 'none';
         document.body.style.cursor = 'auto';
     }
-    
+
     const navMenu = $("#navMenu");
     $("#hamburger")?.addEventListener("click", () => {
         const isHidden = navMenu.classList.contains('hidden');
@@ -455,7 +459,7 @@ function setupEventListeners() {
             }, 300);
         }
     });
-    
+
     // FIX: Exclude download links from the smooth scroll behavior
     $$('#navMenu a[href^="#"], a.hero-cta, #main-nav a[href^="#"]:not([download])').forEach(a => a.addEventListener("click", e => {
         e.preventDefault();
@@ -479,7 +483,7 @@ function setupEventListeners() {
         clearTimeout(resizeTimer);
         resizeTimer = setTimeout(() => {
             if (__portfolioVisibleCount === __portfolioInitialCount) {
-                __portfolioVisibleCount = 0; 
+                __portfolioVisibleCount = 0;
             }
             renderPortfolioGrid(__portfolioFilter);
         }, 150);
@@ -497,14 +501,14 @@ function setupEventListeners() {
     portfolioGrid.addEventListener('mouseout', () => {
         portfolioGrid.classList.remove('is-focused');
         const activeItem = $('.portfolio-item.is-active', portfolioGrid);
-        if(activeItem) activeItem.classList.remove('is-active');
+        if (activeItem) activeItem.classList.remove('is-active');
     });
 
     document.body.addEventListener('click', e => {
         const target = e.target.closest('[data-project-id]');
         if (target) openCinematicViewer(target.dataset.projectId);
     });
-    
+
     $('#closeViewerBtn')?.addEventListener('click', closeCinematicViewer);
     $('#cinematicViewerOverlay')?.addEventListener('click', closeCinematicViewer);
     document.addEventListener("keydown", e => {
@@ -515,7 +519,7 @@ function setupEventListeners() {
     });
     $('#prevBtn')?.addEventListener('click', e => { e.stopPropagation(); showPrevMedia(); });
     $('#nextBtn')?.addEventListener('click', e => { e.stopPropagation(); showNextMedia(); });
-    
+
     document.addEventListener('visibilitychange', () => {
         document.title = document.hidden ? "Come back! 👋" : originalTitle;
     });
@@ -548,7 +552,7 @@ function openCinematicViewer(projectId) {
     const first = focusable[0];
     const last = focusable[focusable.length - 1];
     first?.focus();
-    
+
     overlay.addEventListener('keydown', function trap(e) {
         if (e.key !== 'Tab') return;
         if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
@@ -604,14 +608,14 @@ function updateGalleryView() {
         `;
         initSlider(wrapper.querySelector('.comparison-slider'));
     } else {
-        wrapper.innerHTML = (file.type === 'embed') 
+        wrapper.innerHTML = (file.type === 'embed')
             ? createEmbedElement(file.url)
             : createMediaElement(file.url, file.caption || currentProjectInView.caption);
     }
 
     $('#viewerCaption').textContent = file.caption || currentProjectInView.caption;
     $('#viewerDescription').textContent = file.description || currentProjectInView.description;
-    
+
     const toolsWrap = $('#viewerTools');
     if (toolsWrap) {
         const tools = currentProjectInView.tools || [];
@@ -620,7 +624,7 @@ function updateGalleryView() {
             return `<span role="listitem" title="${t.name}">${icon}<span class="tool-name">${t.name}</span></span>`;
         }).join('');
     }
-    
+
     $('#viewerProgressIndicator').style.width = `${(currentMediaIndex + 1) / currentProjectInView.files.length * 100}%`;
     $('#prevBtn').style.display = currentMediaIndex > 0 ? 'flex' : 'none';
     $('#nextBtn').style.display = currentMediaIndex < currentProjectInView.files.length - 1 ? 'flex' : 'none';
@@ -647,7 +651,7 @@ function initSlider(slider) {
         window.removeEventListener('pointermove', onPointerMove);
         window.removeEventListener('pointerup', onPointerUp);
     };
-    
+
     slider.addEventListener('pointerdown', (e) => {
         e.preventDefault();
         isDragging = true;
@@ -655,7 +659,7 @@ function initSlider(slider) {
         window.addEventListener('pointermove', onPointerMove, { passive: true });
         window.addEventListener('pointerup', onPointerUp, { passive: true });
     });
-    
+
     handle.addEventListener('keydown', (e) => {
         const current = parseFloat(handle.style.left) || 50;
         const step = (e.shiftKey ? 10 : 2);
@@ -713,7 +717,7 @@ function initScrollObserver() {
             }
         });
     }, { threshold: 0.1 });
-    
+
     $$(".fade-in-section, .section-title").forEach(el => observer.observe(el));
 }
 

@@ -330,8 +330,8 @@ body::before {
 #highlights-track {
     scroll-snap-type: none !important;
     overscroll-behavior-x: contain;
-    /* FIX: Allow vertical scrolling on touch devices */
-    touch-action: pan-y pinch-zoom;
+    /* FIX: Allow vertical scrolling on touch devices while enabling horizontal JS scroll */
+    touch-action: pan-y;
     cursor: grab;
 }
 #highlights-track:active { cursor: grabbing; }
@@ -350,17 +350,18 @@ body::before {
 }
 .highlight-slide-content {
     position: relative;
-    background-size: cover;
-    background-position: center;
     overflow: hidden;
     border-radius: 0.75rem;
     aspect-ratio: 16/9;
 }
-.highlight-slide-content::after {
-    content: '';
+.highlight-slide-img {
     position: absolute;
-    inset: 0;
-    background: linear-gradient(to top, rgba(0,0,0,0.9), rgba(0,0,0,0.1));
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1; /* Behind the gradient and text */
 }
 
 .service-card {
@@ -396,11 +397,39 @@ body::before {
     transform: translateY(0);
 }
 
-/* FIX: More robust check for touch vs mouse devices */
+/* More robust check for touch vs mouse devices */
 @media (pointer: coarse) {
-    /* On touch-primary devices, hide joystick and arrows for a cleaner swipe-only interface */
-    #highlights-container .flex.items-center.justify-center {
+    /* On touch-primary devices, hide joystick and show redesigned arrows */
+    #highlight-joystick {
         display: none;
+    }
+    
+    #highlights-container .flex.items-center.justify-center {
+        /* Remove original layout styles */
+        all: unset;
+
+        /* Turn it into a pointer-transparent overlay */
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+
+        /* Re-enable flex to position the arrows */
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 1rem; /* Spacing from the edges */
+    }
+
+    #highlight-prev, #highlight-next {
+        pointer-events: auto; /* Make the buttons clickable again */
+        background-color: rgba(0, 0, 0, 0.35);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(4px);
+        width: 44px;
+        height: 44px;
     }
 }
 
