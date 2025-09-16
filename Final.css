@@ -395,6 +395,15 @@ body::before {
     transform: translateY(0);
 }
 
+/* FIX: More robust check for touch vs mouse devices */
+@media (pointer: coarse) {
+    /* On touch-primary devices, hide joystick and arrows for a cleaner swipe-only interface */
+    #highlights-container .flex.items-center.justify-center {
+        display: none;
+    }
+}
+
+
 @media (max-width: 1024px) {
     .custom-cursor { display: none; }
     body { cursor: auto; }
@@ -419,11 +428,6 @@ body::before {
     .viewer-next-btn { right: 1rem; }
     .highlight-slide { flex-basis: 90vw; }
     #highlights-track { padding: 0 5vw; }
-
-    /* FIX: Hide joystick and arrows on touch devices for a cleaner swipe-only interface */
-    #highlights-container .flex.items-center.justify-center {
-        display: none;
-    }
 }
 
 /* === Mobile improvements === */

@@ -2,17 +2,19 @@
 
 // Helper object for new software icons. Using a central object makes it easy to manage.
 const ICONS = {
-    AFTER_EFFECTS: '<img src="https://cdn.simpleicons.org/adobeaftereffects/AE" alt="Adobe After Effects" title="Adobe After Effects" />',
-    ILLUSTRATOR: '<img src="https://cdn.simpleicons.org/adobeillustrator/AI" alt="Adobe Illustrator" title="Adobe Illustrator" />',
-    PHOTOSHOP: '<img src="https://cdn.simpleicons.org/adobephotoshop/PS" alt="Adobe Photoshop" title="Adobe Photoshop" />',
-    PREMIERE_PRO: '<img src="https://cdn.simpleicons.org/adobepremierepro/PR" alt="Adobe Premiere Pro" title="Adobe Premiere Pro" />',
-    SUBSTANCE_PAINTER: '<img src="https://cdn.simpleicons.org/substance3dpainter" alt="Substance 3D Painter" title="Substance 3D Painter" />',
-    BLENDER: '<img src="https://cdn.simpleicons.org/blender" alt="Blender" title="Blender" />',
-    MAYA: '<img src="https://cdn.simpleicons.org/autodeskmaya" alt="Autodesk Maya" title="Autodesk Maya" />',
-    MAX3DS: '<img src="https://cdn.simpleicons.org/autodesk" alt="3ds Max" title="3ds Max" />',
-    HOUDINI: '<img src="https://cdn.simpleicons.org/houdini" alt="Houdini" title="Houdini" />',
-    NUKE: '<img src="https://cdn.simpleicons.org/nuke" alt="Nuke" title="Nuke" />',
-    MARMOSET: '<img src="https://cdn.simpleicons.org/marmoset" alt="Marmoset Toolbag" title="Marmoset Toolbag" />',
+    // FIX: Corrected Simple Icon URLs and added white color (/fff)
+    AFTER_EFFECTS: '<img src="https://cdn.simpleicons.org/adobeaftereffects/fff" alt="Adobe After Effects" title="Adobe After Effects" />',
+    ILLUSTRATOR: '<img src="https://cdn.simpleicons.org/adobeillustrator/fff" alt="Adobe Illustrator" title="Adobe Illustrator" />',
+    PHOTOSHOP: '<img src="https://cdn.simpleicons.org/adobephotoshop/fff" alt="Adobe Photoshop" title="Adobe Photoshop" />',
+    PREMIERE_PRO: '<img src="https://cdn.simpleicons.org/adobepremierepro/fff" alt="Adobe Premiere Pro" title="Adobe Premiere Pro" />',
+    SUBSTANCE_PAINTER: '<img src="https://cdn.simpleicons.org/substance3dpainter/fff" alt="Substance 3D Painter" title="Substance 3D Painter" />',
+    BLENDER: '<img src="https://cdn.simpleicons.org/blender/fff" alt="Blender" title="Blender" />',
+    MAYA: '<img src="https://cdn.simpleicons.org/autodeskmaya/fff" alt="Autodesk Maya" title="Autodesk Maya" />',
+    MAX3DS: '<img src="https://cdn.simpleicons.org/autodesk/fff" alt="3ds Max" title="3ds Max" />',
+    HOUDINI: '<img src="https://cdn.simpleicons.org/houdini/fff" alt="Houdini" title="Houdini" />',
+    NUKE: '<img src="https://cdn.simpleicons.org/nuke/fff" alt="Nuke" title="Nuke" />',
+    // FIX: Replaced broken Marmoset icon with an inline SVG to guarantee it loads
+    MARMOSET: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="filter: invert(1);"><path d="M20 7h-4V4c0-1.1-.9-2-2-2h-4c-1.1 0-2 .9-2 2v3H4c-1.1 0-2 .9-2 2v11c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V9c0-1.1-.9-2-2-2zM10 4h4v3h-4V4z" fill="currentColor"/></svg>`
 };
 
 
@@ -21,7 +23,6 @@ const portfolioConfig = {
         pageSize: 6
     },
     resume: {
-        // FIX: Corrected the path to the resume file.
         file: 'Portfolio/Resume/Kunal_Sethi_Resume.pdf',
         label: 'Download Résumé'
     },
@@ -56,7 +57,6 @@ const portfolioConfig = {
             description: " This was made just using Motion Graphics on the attempt to make a real life close-up screen shot for a short vfx film.",
             tags: ["graphics", "motion"],
             tools: [
-                // UPDATE: New icons
                 { name: 'Illustrator', icon: ICONS.ILLUSTRATOR },
                 { name: 'After Effects', icon: ICONS.AFTER_EFFECTS }
             ],
@@ -77,7 +77,6 @@ const portfolioConfig = {
             description: "A render done while Checkmating.",
             tags: ["3d"],
             tools: [
-                // UPDATE: New icons
                 { name: 'Maya', icon: ICONS.MAYA },
                 { name: 'Blender', icon: ICONS.BLENDER },
                 
@@ -108,7 +107,6 @@ const portfolioConfig = {
             description: "These are some Invitation Videos for the Event 'Save the Date'.",
             tags: ["graphics", "motion"],
             tools: [
-                // UPDATE: New icons
                 { name: 'After Effects', icon: ICONS.AFTER_EFFECTS },
                 { name: 'Illustrator', icon: ICONS.ILLUSTRATOR }
             ],
@@ -132,7 +130,6 @@ const portfolioConfig = {
             description: "IDK learnt it from some online course, good stuff",
             tags: ["3d"],
             tools: [
-                // UPDATE: New icons
                 { name: 'Maya', icon: ICONS.MAYA },
                 { name: 'Substance Painter', icon: ICONS.SUBSTANCE_PAINTER },
                 { name: 'Marmoset Toolbag', icon: ICONS.MARMOSET }
@@ -150,7 +147,6 @@ const portfolioConfig = {
             description: "Was asked to make a GFX icon for SCP based game",
             tags: ["graphics"],
             tools: [
-                // UPDATE: New icons
                 { name: 'Photoshop', icon: ICONS.PHOTOSHOP },
             ],
             files: [{ type: 'image', url: "Portfolio/Graphic/Game Logos/Horror GFX.png" },
@@ -164,7 +160,6 @@ const portfolioConfig = {
             description: "Was asked to make a GFX icon for Adventure based game",
             tags: ["graphics"],
             tools: [
-                // UPDATE: New icons
                 { name: 'Photoshop', icon: ICONS.PHOTOSHOP },
             ],
             files: [{ type: 'image', url: "Portfolio/Graphic/Game Logos/Wildlife GFX.png"},],
@@ -174,56 +169,45 @@ const portfolioConfig = {
         {
             id: 'live1', caption: 'Smriti', description: 'Live action short film for a Competition.', tags: ['live'], 
             tools: [{ name: 'Premiere Pro', icon: ICONS.PREMIERE_PRO }],
-            files: [ { type: 'image', url: "Portfolio/Live Action Thumbnails/Smriti.png" },
-                { type: 'embed', url: 'https://drive.google.com/file/d/1cjhTnD9lp6dFNPByDucGBw6qx1K0tbVn/view?usp=drive_link' } ],
+            files: [ { type: 'embed', url: 'https://drive.google.com/file/d/1cjhTnD9lp6dFNPByDucGBw6qx1K0tbVn/view?usp=drive_link' } ],
             thumbnail: 'Portfolio/Live Action Thumbnails/Smriti.png',
         },
         {
             id: 'live2', caption: 'School Project, Music Video', description: 'Music video project.', tags: ['live'], 
-            // UPDATE: Added requested tool
             tools: [{ name: 'Premiere Pro', icon: ICONS.PREMIERE_PRO }],
-            files: [ { type: 'image', url: "Portfolio/Live Action Thumbnails/I worry.png" },
-                { type: 'embed', url: 'https://drive.google.com/file/d/12V2DCK0RVkH04rPWgCrEl03CksKhWXBr/view?usp=drive_link' } ],
-            thumbnail: 'Portfolio/Live Action Thumbnails/I worry thumbnail.png',
+            files: [ { type: 'embed', url: 'https://drive.google.com/file/d/12V2DCK0RVkH04rPWgCrEl03CksKhWXBr/view?usp=drive_link' } ],
+            thumbnail: 'Portfolio/Live Action Thumbnails/I worry.png',
         },
         {
             id: 'live3', caption: 'Rang (with Motion Graphics)', description: 'Live action + motion graphics.', tags: ['live', 'motion'], 
-            // UPDATE: Added requested tool
             tools: [{ name: 'After Effects', icon: ICONS.AFTER_EFFECTS }],
-            files: [ { type: 'image', url: "Portfolio/Live Action Thumbnails/Rang.png" },
-                { type: 'embed', url: 'https://drive.google.com/file/d/1gSdjfouUxhe669ReEXZdV3kQM_p_BtMS/view?usp=drive_link' } ],
+            files: [ { type: 'embed', url: 'https://drive.google.com/file/d/1gSdjfouUxhe669ReEXZdV3kQM_p_BtMS/view?usp=drive_link' } ],
             thumbnail: 'Portfolio/Live Action Thumbnails/Rang.png',
         },
         {
             id: 'live4', caption: 'Lack of', description: 'Live action piece.', tags: ['live'], 
-            // UPDATE: Added requested tool
             tools: [{ name: 'Premiere Pro', icon: ICONS.PREMIERE_PRO }],
-            files: [ { type: 'image', url: "Portfolio/Live Action Thumbnails/Lack Of.png" },
-                { type: 'embed', url: 'https://drive.google.com/file/d/1-OVP217GzKXAJ6f1KASnaRe2e9XCrSHG/view?usp=drive_link' } ],
-            thumbnail: 'Portfolio/Live Action Thumbnails/Lack Of thumbnail.png',
+            files: [ { type: 'embed', url: 'https://drive.google.com/file/d/1-OVP217GzKXAJ6f1KASnaRe2e9XCrSHG/view?usp=drive_link' } ],
+            thumbnail: 'Portfolio/Live Action Thumbnails/Lack Of.png',
         },
         {
             id: 'live5', caption: 'KeyGenie (VFX + Live Action)', description: 'VFX plus live action.', tags: ["live","vfx"], 
-            // UPDATE: Added requested tools
             tools: [
                 { name: 'Nuke', icon: ICONS.NUKE },
                 { name: 'Houdini', icon: ICONS.HOUDINI },
                 { name: 'After Effects', icon: ICONS.AFTER_EFFECTS },
                 { name: 'Blender', icon: ICONS.BLENDER },
             ],
-            files: [ 
-                { type: 'embed', url: 'https://drive.google.com/file/d/1knQ2yOpeLwQ9hFicbvCN1QimoIu9b58v/view?usp=drive_link' } ],
+            files: [ { type: 'embed', url: 'https://drive.google.com/file/d/1knQ2yOpeLwQ9hFicbvCN1QimoIu9b58v/view?usp=drive_link' } ],
             thumbnail: 'Portfolio/Live Action Thumbnails/KeyGenie.png',
         },
         {
             id: 'live6', caption: 'Kalam', description: 'Live action film.', tags: ['live'], 
-            // UPDATE: Added requested tool
             tools: [{ name: 'Premiere Pro', icon: ICONS.PREMIERE_PRO }],
             files: [ { type: 'embed', url: 'https://drive.google.com/file/d/1D1Uh7e9wNRdIIeQlKKb432gEiHNBfrS-/view?usp=drive_link' } ],
             thumbnail: 'Portfolio/Live Action Thumbnails/Kalam.png',
         }
     ],
-    // This array now drives the order and content of the highlights carousel
     highlights: ["project1", "project2", "project3", "project4", "live1", "live2", "live3", "live4", "live5", "live6"],
     services: [
         {
@@ -274,7 +258,7 @@ function populateContent() {
     const heroVideoElement = $('.hero-media-element');
     if (heroVideoElement) {
         if (portfolioConfig.heroVideo.poster) heroVideoElement.setAttribute('poster', portfolioConfig.heroVideo.poster);
-        heroVideoElement.setAttribute('preload', 'none');
+        heroVideoElement.setAttribute('preload', 'metadata');
         const makeSource = (url, media) => {
             if (!url) return '';
             const ext = (url.split('.').pop() || '').toLowerCase();
@@ -383,16 +367,21 @@ function renderPortfolioGrid(filter) {
     }
 
     const projectsToRender = allProjects.slice(0, __portfolioVisibleCount);
-    grid.innerHTML = projectsToRender.map((project, index) => `
+    grid.innerHTML = projectsToRender.map((project, index) => {
+        const loadingAttribute = index < __portfolioInitialCount ? '' : 'loading="lazy"';
+        // FIX: Added onerror fallback for missing thumbnails
+        const placeholder = `https://placehold.co/400x300/0a0a0a/222222?text=${encodeURIComponent(project.caption)}`;
+        return `
         <div class="portfolio-item group" data-project-id="${project.id}" role="button" tabindex="0" style="animation-delay: ${index * 40}ms">
-            <img loading="lazy" src="${project.thumbnail}" alt="${project.caption}" />
+            <img ${loadingAttribute} src="${project.thumbnail}" alt="${project.caption}" onerror="this.onerror=null;this.src='${placeholder}';" />
             <div class="absolute top-3 right-3 flex gap-2">
                 ${project.tags?.map(tag => `<span class="bg-black/50 text-white text-[10px] font-semibold px-2 py-1 rounded-full">${tag.toUpperCase()}</span>`).join('') || ''}
             </div>
             <div class="portfolio-overlay absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-3 opacity-0 group-hover:opacity-100 transition-opacity">
                 <span class="text-white font-bold">${project.caption}</span>
             </div>
-        </div>`).join('');
+        </div>`;
+    }).join('');
 
     updatePaginationButtons(allProjects.length, pageSize);
 }
@@ -430,6 +419,7 @@ function setupEventListeners() {
 
     const cursor = $('#custom-cursor');
     if (window.matchMedia("(pointer: fine)").matches) {
+        document.body.style.cursor = 'none';
         window.addEventListener('mousemove', e => {
             document.documentElement.style.setProperty('--mouse-x', `${e.clientX}px`);
             document.documentElement.style.setProperty('--mouse-y', `${e.clientY}px`);
@@ -462,7 +452,8 @@ function setupEventListeners() {
         }
     });
     
-    $$('#navMenu a, a.hero-cta, #main-nav a[href^="#"]').forEach(a => a.addEventListener("click", e => {
+    // FIX: Exclude download links from the smooth scroll behavior
+    $$('#navMenu a[href^="#"], a.hero-cta, #main-nav a[href^="#"]:not([download])').forEach(a => a.addEventListener("click", e => {
         e.preventDefault();
         navMenu.classList.add('opacity-0', '-translate-y-4');
         setTimeout(() => navMenu.classList.add('hidden'), 300);
