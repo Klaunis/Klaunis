@@ -13,7 +13,7 @@
     <meta property="og:title" content="Kunal Sethi — Cinematic Visual Designer">
     <meta property="og:description" content="3D • VFX • Motion • Graphics. Explore highlights, portfolio, and services.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://example.com">
+    <meta property="og:url" content="https://klaunis.github.io/Klaunis/">
     <meta property="og:image" content="Portfolio/Live Action Thumbnails/Kalam.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Kunal Sethi — Cinematic Visual Designer">
@@ -26,7 +26,7 @@
       "name": "Kunal Sethi",
       "jobTitle": "Cinematic Visual Designer",
       "email": "mailto:sethikunal66@gmail.com",
-      "url": "https://example.com",
+      "url": "https://klaunis.github.io/Klaunis/",
       "sameAs": []
     }
     </script>
@@ -178,7 +178,7 @@
       .comparison-slider .slider-handle::after { content: '\2194' !important; }
       .viewer-tools { display: flex; flex-wrap: wrap; gap: 0.5rem 0.75rem; margin-top: 0.75rem; }
       .viewer-tools [role="listitem"] { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.25rem 0.5rem; border: 1px solid rgba(255,255,255,0.12); border-radius: 9999px; background: rgba(255,255,255,0.06); }
-      .viewer-tools img, .viewer-tools svg { width: 18px; height: 18px; object-fit: contain; display: inline-block; }
+      .viewer-tools img, .viewer-tools svg { width: 18px; height: 18px; object-fit: contain; display: inline-block; filter: invert(1); }
       .viewer-tools .tool-name { font-size: 0.8rem; color: #e5e5e5; }
       :focus-visible { outline: 2px solid #8ab4ff; outline-offset: 2px; }
       @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } .hero-media-element { animation: none !important; } body::before { background: none !important; } }
@@ -217,157 +217,186 @@
     <script src="Final.js"></script>
     <script>
     document.addEventListener('DOMContentLoaded', () => {
-      // 1) Fix project 2 first image path and optional thumbnail
-      try {
-        const p2 = (window.portfolioConfig || {}).projects?.find(p => p.id === 'project2');
-        if (p2) {
-          p2.files && p2.files[0] && (p2.files[0].url = 'Portfolio/3D/Chess/Render Chess 1.jpg');
-          if (p2.thumbnail) { p2.thumbnail = 'Portfolio/3D/Chess/Render Chess 1.jpg'; }
-          const slide = document.querySelector('.highlight-slide[data-project-id="project2"] .highlight-slide-content');
-          if (slide) slide.style.backgroundImage = "url('Portfolio/3D/Chess/Render Chess 1.jpg')";
+        // This script block contains fixes for UI interactions that must run after the main script has populated the page.
+    
+        // Wires the correct résumé URL to all résumé links on the page.
+        function setupResumeLinks() {
+            try {
+                const resumeUrl = window.portfolioConfig?.resume?.file;
+                if (!resumeUrl) return;
+    
+                const resumeNav = document.getElementById('resume-nav');
+                const resumeNavMobile = document.getElementById('resume-nav-mobile');
+                const resumeFooter = document.getElementById('resume-link');
+    
+                if (resumeNav) resumeNav.href = resumeUrl;
+                if (resumeNavMobile) resumeNavMobile.href = resumeUrl;
+                if (resumeFooter) resumeFooter.href = resumeUrl;
+            } catch (error) {
+                console.error("Could not set up résumé links:", error);
+            }
         }
-      } catch {}
-
-      // 2) Rebuild highlights interactions with looping + joystick + snap
-      // Also wire résumé link in top nav
-      try {
-        const rn = document.getElementById('resume-nav');
-        const rnm = document.getElementById('resume-nav-mobile');
-        const footerLink = document.getElementById('resume-link');
-        const resUrl = footerLink?.getAttribute('href') || 'Portfolio/Resume/Kunal_Sethi_Resume.pdf';
-        if (rn) { rn.href = resUrl; rn.setAttribute('download', ''); }
-        if (rnm) { rnm.href = resUrl; rnm.setAttribute('download', ''); }
-      } catch {}
-      const trackOld = document.getElementById('highlights-track');
-      if (!trackOld) return;
-      const track = trackOld.cloneNode(true);
-      trackOld.replaceWith(track);
-      const slidesBase = Array.from(track.querySelectorAll('.highlight-slide'));
-      if (!slidesBase.length) return;
-      const first = slidesBase[0];
-      const last = slidesBase[slidesBase.length - 1];
-      const firstClone = first.cloneNode(true); firstClone.dataset.clone = 'first';
-      const lastClone = last.cloneNode(true); lastClone.dataset.clone = 'last';
-      track.insertBefore(lastClone, first);
-      track.appendChild(firstClone);
-      const slides = Array.from(track.querySelectorAll('.highlight-slide'));
-      requestAnimationFrame(() => { const left = first.offsetLeft - (track.clientWidth - first.clientWidth) / 2; track.scrollLeft = left; });
-
-      // Observer for active slide
-      const io = new IntersectionObserver((entries) => {
-        entries.forEach(e => { if (e.isIntersecting) { slides.forEach(s=>s.classList.remove('is-active')); e.target.classList.add('is-active'); } });
-      }, { root: track, threshold: 0.6 });
-      slides.forEach(s => io.observe(s));
-
-      function normalizeLoop() {
-        const realSlides = Array.from(track.querySelectorAll('.highlight-slide:not([data-clone])'));
-        if (!realSlides.length) return;
-        const firstReal = realSlides[0];
-        const lastReal = realSlides[realSlides.length - 1];
-        const firstClone = track.querySelector('.highlight-slide[data-clone="last"]');   // clone of last at the head
-        const lastClone  = track.querySelector('.highlight-slide[data-clone="first"]');  // clone of first at the tail
-        if (!firstClone || !lastClone) return;
-
-        // Find which slide is visually centered
-        const centerX = track.scrollLeft + track.clientWidth / 2;
-        const active = (function(){
-          let best = slides[0], bestDist = Infinity;
-          for (const s of slides) {
-            const mid = s.offsetLeft + s.clientWidth / 2;
-            const d = Math.abs(mid - centerX);
-            if (d < bestDist) { best = s; bestDist = d; }
-          }
-          return best;
-        })();
-
-        // If the centered slide is a clone, jump to the matching real slide
-        // while preserving the exact offset from the slide's center.
-        const jumpTo = (fromClone, toReal) => {
-          const fromCenter = fromClone.offsetLeft + fromClone.clientWidth / 2;
-          const toCenter = toReal.offsetLeft + toReal.clientWidth / 2;
-          const delta = centerX - fromCenter; // how far from center we are
-          const targetLeft = (toCenter + delta) - track.clientWidth / 2;
-          const prev = track.style.scrollBehavior;
-          track.style.scrollBehavior = 'auto'; // ensure instant, no smooth animation
-          track.scrollLeft = targetLeft;
-          track.style.scrollBehavior = prev || '';
-        };
-
-        if (active === firstClone) {
-          jumpTo(firstClone, lastReal);
-        } else if (active === lastClone) {
-          jumpTo(lastClone, firstReal);
+    
+        // Rebuilds the highlights carousel for infinite looping and robust navigation.
+        function setupAdvancedCarousel() {
+            const track = document.getElementById('highlights-track');
+            if (!track) return;
+    
+            // Clone the track to remove any old event listeners and start fresh.
+            const freshTrack = track.cloneNode(true);
+            track.parentNode.replaceChild(freshTrack, track);
+    
+            const slidesBase = Array.from(freshTrack.querySelectorAll('.highlight-slide'));
+            if (slidesBase.length <= 1) return; // No need for carousel logic with 0 or 1 slide.
+    
+            // Create clones for the infinite loop effect.
+            const firstClone = slidesBase[0].cloneNode(true);
+            firstClone.dataset.clone = 'first';
+            const lastClone = slidesBase[slidesBase.length - 1].cloneNode(true);
+            lastClone.dataset.clone = 'last';
+    
+            freshTrack.insertBefore(lastClone, slidesBase[0]);
+            freshTrack.appendChild(firstClone);
+    
+            const allSlides = Array.from(freshTrack.querySelectorAll('.highlight-slide'));
+    
+            // Start the scroll position at the beginning of the "real" slides.
+            requestAnimationFrame(() => {
+                const firstRealSlide = freshTrack.querySelector('.highlight-slide:not([data-clone])');
+                if (firstRealSlide) {
+                    const initialLeft = firstRealSlide.offsetLeft - (freshTrack.clientWidth - firstRealSlide.clientWidth) / 2;
+                    freshTrack.scrollLeft = initialLeft;
+                }
+            });
+    
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(e => {
+                    if (e.isIntersecting) {
+                        allSlides.forEach(s => s.classList.remove('is-active'));
+                        e.target.classList.add('is-active');
+                    }
+                });
+            }, { root: freshTrack, threshold: 0.6 });
+            allSlides.forEach(s => observer.observe(s));
+    
+            // Function to seamlessly jump from a clone to its real counterpart.
+            function normalizeLoop() {
+                const centerX = freshTrack.scrollLeft + freshTrack.clientWidth / 2;
+                const activeSlide = allSlides.reduce((closest, slide) => {
+                    const slideCenter = slide.offsetLeft + slide.clientWidth / 2;
+                    const distance = Math.abs(centerX - slideCenter);
+                    return distance < closest.distance ? { slide, distance } : closest;
+                }, { slide: null, distance: Infinity }).slide;
+    
+                if (activeSlide && activeSlide.dataset.clone) {
+                    const targetProjectId = activeSlide.dataset.projectId;
+                    const realSlide = freshTrack.querySelector(`.highlight-slide:not([data-clone])[data-project-id="${targetProjectId}"]`);
+                    if (realSlide) {
+                        const newScrollLeft = realSlide.offsetLeft - (freshTrack.clientWidth - realSlide.clientWidth) / 2;
+                        const prevBehavior = freshTrack.style.scrollBehavior;
+                        freshTrack.style.scrollBehavior = 'auto'; // Instant jump
+                        freshTrack.scrollLeft = newScrollLeft;
+                        freshTrack.style.scrollBehavior = prevBehavior;
+                    }
+                }
+            }
+            freshTrack.addEventListener('scroll', normalizeLoop);
+    
+            function centerOnSlide(slide) {
+                const left = slide.offsetLeft - (freshTrack.clientWidth - slide.clientWidth) / 2;
+                freshTrack.scrollTo({ left, behavior: 'smooth' });
+            }
+    
+            function getClosestSlide() {
+                const center = freshTrack.scrollLeft + freshTrack.clientWidth / 2;
+                return allSlides.reduce((closest, slide) => {
+                    const mid = slide.offsetLeft + slide.clientWidth / 2;
+                    const d = Math.abs(mid - center);
+                    return d < closest.dist ? { el: slide, dist: d } : closest;
+                }, { el: allSlides[0], dist: Infinity }).el;
+            }
+    
+            // *** FIXED ARROW NAVIGATION LOGIC ***
+            function navigate(direction) {
+                const highlightIds = window.portfolioConfig?.highlights || [];
+                if (highlightIds.length === 0) return;
+    
+                const currentSlide = getClosestSlide();
+                const currentProjectId = currentSlide.dataset.projectId;
+                const currentIndex = highlightIds.indexOf(currentProjectId);
+    
+                if (currentIndex === -1) return; // Should not happen
+    
+                const nextIndex = (currentIndex + direction + highlightIds.length) % highlightIds.length;
+                const nextProjectId = highlightIds[nextIndex];
+                const targetSlide = freshTrack.querySelector(`.highlight-slide:not([data-clone])[data-project-id="${nextProjectId}"]`);
+    
+                if (targetSlide) {
+                    centerOnSlide(targetSlide);
+                }
+            }
+    
+            document.getElementById('highlight-prev')?.addEventListener('click', () => navigate(-1));
+            document.getElementById('highlight-next')?.addEventListener('click', () => navigate(1));
+    
+            // Setup joystick controls
+            const joy = document.getElementById('highlight-joystick');
+            if (joy) {
+                const handle = joy.querySelector('.hj-handle');
+                let active = false, joyVal = 0, raf = null;
+    
+                function setHandle(n) {
+                    const rect = joy.getBoundingClientRect();
+                    const half = (rect.width - handle.offsetWidth) / 2;
+                    const clamped = Math.max(-1, Math.min(1, n));
+                    handle.style.transform = `translate(-50%, -50%) translateX(${clamped * half}px)`;
+                    joy.setAttribute('aria-valuenow', String(Math.round(clamped * 100)));
+                    joyVal = clamped;
+                }
+    
+                function loop() {
+                    if (!active) { raf = null; return; }
+                    freshTrack.scrollLeft += joyVal * (freshTrack.clientWidth * 0.02);
+                    raf = requestAnimationFrame(loop);
+                }
+    
+                function down(e) {
+                    active = true;
+                    joy.classList.add('dragging');
+                    move(e);
+                    if (!raf) raf = requestAnimationFrame(loop);
+                    window.addEventListener('pointermove', move);
+                    window.addEventListener('pointerup', up, { once: true });
+                }
+    
+                function move(e) {
+                    const r = joy.getBoundingClientRect();
+                    const half = (r.width - handle.offsetWidth) / 2;
+                    const rawX = e.clientX - r.left;
+                    const dx = rawX - r.width / 2;
+                    const n = dx / half;
+                    setHandle(Math.max(-1, Math.min(1, n)));
+                }
+    
+                function up() {
+                    active = false;
+                    joy.classList.remove('dragging');
+                    setHandle(0);
+                    handle.classList.add('hj-bounce');
+                    setTimeout(() => handle.classList.remove('hj-bounce'), 220);
+                    window.removeEventListener('pointermove', move);
+                    const closest = getClosestSlide();
+                    centerOnSlide(closest);
+                }
+    
+                joy.addEventListener('pointerdown', down);
+            }
         }
-      }track.addEventListener('scroll', normalizeLoop);
-
-      function centerOnSlide(slide) {
-        const left = slide.offsetLeft - (track.clientWidth - slide.clientWidth) / 2;
-        track.scrollTo({ left, behavior: 'smooth' });
-      }
-      function getRealSlides() {
-        return Array.from(track.querySelectorAll('.highlight-slide')).filter(s => !s.dataset.clone);
-      }
-      function getClosestSlide() {
-        const center = track.scrollLeft + track.clientWidth / 2;
-        let best = slides[0], bestDist = Infinity;
-        slides.forEach(s => { const mid = s.offsetLeft + s.clientWidth/2; const d = Math.abs(mid-center); if (d<bestDist){best=s; bestDist=d;} });
-        return best;
-      }
-      // Arrows snap to next/prev and loop
-      document.getElementById('highlight-prev')?.addEventListener('click', () => {
-        const arr = getRealSlides();
-        const current = getClosestSlide();
-        let idx = Math.max(0, arr.indexOf(current));
-        const target = idx === 0 ? arr[arr.length-1] : arr[idx-1];
-        centerOnSlide(target);
-      });
-      document.getElementById('highlight-next')?.addEventListener('click', () => {
-        const arr = getRealSlides();
-        const current = getClosestSlide();
-        let idx = Math.max(0, arr.indexOf(current));
-        const target = idx === arr.length-1 ? arr[0] : arr[idx+1];
-        centerOnSlide(target);
-      });
-
-      // Joystick control: drag farther => faster scroll, snap on release
-      const joy = document.getElementById('highlight-joystick');
-      if (joy) {
-        const handle = joy.querySelector('.hj-handle');
-        let active = false, joyVal = 0, raf = null;
-        function setHandle(n) {
-          const rect = joy.getBoundingClientRect();
-          const half = (rect.width - handle.offsetWidth) / 2; // max travel from center
-          const clamped = Math.max(-1, Math.min(1, n));
-          handle.style.transform = `translate(-50%, -50%) translateX(${clamped * half}px)`;
-          joy.setAttribute('aria-valuenow', String(Math.round(clamped * 100)));
-          joyVal = clamped;
-        }
-        function loop() {
-          if (!active) { raf = null; return; }
-          track.scrollLeft += joyVal * (track.clientWidth * 0.02);
-          raf = requestAnimationFrame(loop);
-        }
-        function down(e){ active = true; joy.classList.add('dragging'); move(e); if(!raf) raf=requestAnimationFrame(loop); window.addEventListener('pointermove', move); window.addEventListener('pointerup', up, {once:true}); }
-        function move(e){
-          const r = joy.getBoundingClientRect();
-          const radius = handle.offsetWidth / 2;
-          const half = (r.width - handle.offsetWidth) / 2;
-          // Clamp pointer X to keep the center of the handle inside the track
-          const raw = e.clientX - r.left;
-          const centerClamped = Math.max(radius, Math.min(r.width - radius, raw));
-          const dx = centerClamped - r.width / 2; // offset from center in px
-          const n = dx / half; // normalized [-1,1]
-          setHandle(Math.max(-1, Math.min(1, n)));
-        }
-        function up(){ active=false; joy.classList.remove('dragging'); setHandle(0); handle.classList.add('hj-bounce'); setTimeout(()=>handle.classList.remove('hj-bounce'),220); window.removeEventListener('pointermove', move); const arr=getRealSlides(); const c=getClosestSlide(); let left = c.offsetLeft - (track.clientWidth - c.clientWidth)/2; track.scrollTo({left, behavior:'smooth'}); }
-        joy.addEventListener('pointerdown', down);
-      }
+    
+        // Run all setup functions.
+        setupResumeLinks();
+        setupAdvancedCarousel();
     });
     </script>
 </body>
 </html>
-
-
-
-
-

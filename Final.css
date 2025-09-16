@@ -216,15 +216,14 @@ body::before {
 .viewer-progress-bar { position: absolute; bottom: -20px; left: 0; width: 100%; height: 3px; background-color: rgba(255, 255, 255, 0.2); border-radius: 3px; }
 .viewer-progress-indicator { height: 100%; width: 0; background-color: var(--fg); border-radius: 3px; transition: width 0.3s ease; }
 
-/* === THIS IS THE ONLY SECTION THAT HAS BEEN CHANGED === */
+/* === COMPARISON SLIDER STYLES === */
 .comparison-slider {
     position: relative;
     width: 100%;
     height: 100%;
     overflow: hidden;
     border-radius: 0.5rem;
-    background-color: #000; /* ensure neutral background for letterboxing */
-    /* Prevent blue selection overlay and touch delays */
+    background-color: #000;
     user-select: none;
     -webkit-user-select: none;
     -ms-user-select: none;
@@ -240,7 +239,7 @@ body::before {
     height: 100%;
     object-fit: contain;
     pointer-events: none;
-    border-radius: 0.5rem; /* Ensure media inside also has rounded corners */
+    border-radius: 0.5rem;
     -webkit-user-drag: none;
 }
 .comparison-slider .before-media { z-index: 1; }
@@ -253,7 +252,6 @@ body::before {
     overflow: hidden;
     z-index: 2;
 }
-/* Visual divider line that follows the handle */
 .comparison-slider .slider-divider {
     position: absolute;
     top: 0;
@@ -264,18 +262,16 @@ body::before {
     background: linear-gradient(to bottom, rgba(255,255,255,0.85), rgba(255,255,255,0.6));
     box-shadow: 0 0 12px rgba(255,255,255,0.35), 0 0 2px rgba(0,0,0,0.6) inset;
     pointer-events: none;
-    z-index: 9; /* below the handle (10) */
+    z-index: 9;
 }
-/* This is the key fix: The after image must be explicitly sized to the container's full dimensions, not its own clipped area */
 .comparison-slider .after-image-container .after-media > .viewer-media, .comparison-slider .before-media > .viewer-media {
     width: 100%;
     height: 100%;
-    max-width: none; /* This prevents the browser from constraining the image width */
-    position: absolute; /* Re-affirm position relative to the slider base */
+    max-width: none;
+    position: absolute;
     top: 0;
     left: 0;
 }
-/* Strongly normalize media inside slider: no entry animations or scaling */
 .comparison-slider .viewer-media {
     position: absolute !important;
     inset: 0 !important;
@@ -329,10 +325,9 @@ body::before {
 }
 .comparison-slider .before-label { left: 1rem; }
 .comparison-slider .after-label { right: 1rem; }
-/* ======================================================= */
+/* ================================== */
 
 #highlights-track {
-    /* Make it behave like a free-spinning wheel */
     scroll-snap-type: none !important;
     overscroll-behavior-x: contain;
     touch-action: pan-x pinch-zoom;
@@ -344,7 +339,6 @@ body::before {
     flex: 0 0 80vw;
     max-width: 1200px;
     scroll-snap-align: center;
-    /* allow smooth gliding between snaps; JS will manage wrap */
     opacity: 0.5;
     transform: scale(0.95);
     transition: opacity 0.4s ease, transform 0.4s ease;
@@ -425,6 +419,11 @@ body::before {
     .viewer-next-btn { right: 1rem; }
     .highlight-slide { flex-basis: 90vw; }
     #highlights-track { padding: 0 5vw; }
+
+    /* FIX: Hide joystick and arrows on touch devices for a cleaner swipe-only interface */
+    #highlights-container .flex.items-center.justify-center {
+        display: none;
+    }
 }
 
 /* === Mobile improvements === */
@@ -470,6 +469,3 @@ body::before {
     color: #fff !important;
     box-shadow: 0 2px 8px rgba(0,0,0,0.5);
 }
-
-
-
