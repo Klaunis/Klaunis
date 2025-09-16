@@ -190,7 +190,7 @@ const portfolioConfig = {
         {
             id: 'live4', caption: 'Lack of', description: 'Live action piece.', tags: ['live'], 
             tools: [{ name: 'Premiere Pro', icon: ICONS.PREMIERE_PRO }],
-            files: [ { type: 'image', url: 'Portfolio/Live Action Thumbnails/Lack of.webp' } ,
+            files: [ { type: 'image', url: 'Portfolio/Live Action Thumbnails/Lack Of.webp' } ,
                 { type: 'embed', url: 'https://drive.google.com/file/d/1-OVP217GzKXAJ6f1KASnaRe2e9XCrSHG/view?usp=drive_link' } ],
             thumbnail: 'Portfolio/Live Action Thumbnails/Lack Of Thumbnail.webp',
         },
