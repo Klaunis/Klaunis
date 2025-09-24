@@ -321,6 +321,106 @@ main {
     font-weight: 600;
 }
 
+/* Comparison slider styles */
+.comparison-slider {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 1rem;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.02);
+    isolation: isolate;
+    --slider-value: 60;
+    touch-action: none;
+}
+
+.comparison-slider img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.comparison-slider .slider-base,
+.comparison-slider .slider-overlay {
+    position: absolute;
+    inset: 0;
+}
+
+.comparison-slider .slider-overlay {
+    clip-path: inset(0 calc(100% - (var(--slider-value) * 1%)) 0 0);
+    overflow: hidden;
+}
+
+.comparison-slider input[type='range'] {
+    position: absolute;
+    inset: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 5;
+    pointer-events: auto;
+}
+
+.comparison-slider .slider-handle {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: calc(var(--slider-value) * 1%);
+    transform: translateX(-50%);
+    width: 2px;
+    background: rgba(255, 255, 255, 0.85);
+    box-shadow: 0 0 12px rgba(0,0,0,0.5);
+    pointer-events: none;
+}
+
+.comparison-slider .slider-handle::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    background: rgba(0, 0, 0, 0.55);
+}
+
+.comparison-slider .slider-handle::after {
+    content: '\2194';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.comparison-slider .slider-label {
+    position: absolute;
+    bottom: 1rem;
+    font-size: 0.85rem;
+    padding: 0.4rem 0.8rem;
+    border-radius: 999px;
+    backdrop-filter: blur(12px);
+    background: rgba(0, 0, 0, 0.55);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.comparison-slider .slider-label--before {
+    left: 1rem;
+}
+
+.comparison-slider .slider-label--after {
+    right: 1rem;
+}
+
 @media (max-width: 1024px) {
     .work-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -392,6 +492,15 @@ main {
 
     .project figcaption {
         font-size: 1rem;
+    }
+
+    .comparison-slider {
+        aspect-ratio: 4 / 5;
+    }
+
+    .comparison-slider .slider-handle::before {
+        width: 2.1rem;
+        height: 2.1rem;
     }
 }
 
