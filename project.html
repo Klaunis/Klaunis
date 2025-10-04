@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kunal Sethi — Project</title>
+    <meta name="description" content="Detailed look at a project by cinematic visual designer Kunal Sethi." />
+    <link rel="stylesheet" href="Final.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="project-page">
+    <nav class="site-nav" id="site-nav">
+        <a class="site-nav__brand" href="index.html#top">Kunal Sethi</a>
+        <button class="site-nav__toggle" type="button" aria-expanded="false" aria-controls="primary-nav" data-nav-toggle>
+            <span class="site-nav__toggle-line"></span>
+            <span class="site-nav__toggle-line"></span>
+        </button>
+        <div class="site-nav__links" id="primary-nav">
+            <a href="index.html#portfolio" class="site-nav__link">Portfolio</a>
+            <a href="index.html#about" class="site-nav__link">About</a>
+            <a href="index.html#contact" class="site-nav__link">Contact</a>
+        </div>
+    </nav>
+
+    <main class="project-main" id="project-main" hidden>
+        <section class="project-hero" id="project-hero">
+            <div class="project-hero__media" id="project-hero-media" role="presentation"></div>
+            <div class="project-hero__overlay"></div>
+            <div class="project-hero__content">
+                <div class="project-hero__blur" aria-hidden="true"></div>
+                <a class="project-back" href="index.html#portfolio" aria-label="Back to portfolio">&larr; Back to Portfolio</a>
+                <div class="project-hero__meta" id="project-meta"></div>
+                <h1 class="project-title" id="project-title"></h1>
+                <p class="project-summary" id="project-summary"></p>
+                <ul class="project-tags" id="project-tags" aria-label="Project tags"></ul>
+                <div class="project-credits" id="project-credits" aria-label="Tools used"></div>
+            </div>
+        </section>
+
+        <section class="project-body" id="project-body">
+            <div class="project-description" id="project-description"></div>
+            <div class="project-media-header" id="project-media-header">
+                <h2 class="project-media-heading">Media Gallery</h2>
+                <p class="project-media-subheading">Scroll through key frames, breakdowns, and behind-the-scenes moments.</p>
+            </div>
+            <div class="project-media-grid" id="project-media"></div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <span class="site-footer__mark">&copy; <span id="current-year"></span> Kunal Sethi</span>
+        <a class="site-footer__link" href="mailto:kunaalsethii@gmail.com">kunaalsethii@gmail.com</a>
+        <a class="site-footer__link" href="tel:+919717895116">+91 97178 95116</a>
+        <a class="site-footer__link" href="https://www.linkedin.com" target="_blank" rel="noreferrer" aria-label="LinkedIn">LinkedIn</a>
+        <a class="site-footer__link" href="https://www.instagram.com" target="_blank" rel="noreferrer" aria-label="Instagram">Instagram</a>
+        <a class="site-footer__link" href="https://www.behance.net" target="_blank" rel="noreferrer" aria-label="Behance">Behance</a>
+    </footer>
+
+    <script src="projects-data.js" defer></script>
+    <script src="project.js" defer></script>
+</body>
+</html>
+
+
+
+
+
+
+

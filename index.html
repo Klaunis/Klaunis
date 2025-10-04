@@ -1,188 +1,166 @@
-<!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+﻿<!DOCTYPE html>
+<html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Kunal Sethi &mdash; Cinematic Visual Designer</title>
-  <meta name="description" content="Cinematic Visual Designer &#8226; 3D &#8226; VFX &#8226; Motion &#8226; Graphics">
-  <!-- Open Graph / Twitter -->
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="Kunal Sethi &mdash; Cinematic Visual Designer">
-  <meta property="og:description" content="Cinematic Visual Designer &#8226; 3D &#8226; VFX &#8226; Motion &#8226; Graphics">
-  <meta property="og:url" content="https://klaunis.github.io/Klaunis/">
-  <meta property="og:image" content="https://klaunis.github.io/Klaunis/assets/og-cover.jpg">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Kunal Sethi &mdash; Cinematic Visual Designer">
-  <meta name="twitter:description" content="Cinematic Visual Designer &#8226; 3D &#8226; VFX &#8226; Motion &#8226; Graphics">
-  <meta name="twitter:image" content="https://klaunis.github.io/Klaunis/assets/og-cover.jpg">
-  <!-- Fonts & CSS -->
-  <link rel="stylesheet" href="Final.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kunal Sethi - Cinematic Visual Designer</title>
+    <meta name="description"
+        content="Cinematic visual designer blending 3D, VFX, and motion storytelling. Explore the latest work, about, and contact details." />
+    <link rel="stylesheet" href="Final.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap"
+        rel="stylesheet">
 </head>
-<body class="bg-black text-neutral-200">
-  <div id="custom-cursor" class="custom-cursor"></div>
-  <div id="loader-overlay" class="loader-overlay"><div class="spinner"></div></div>
-  <main id="main-content">
-    <header id="main-nav" class="fixed top-0 left-0 w-full z-50 transition-all duration-300">
-      <nav class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
-        <a href="#top" class="text-white text-lg font-black tracking-widest no-underline">KUNAL SETHI</a>
-        <div class="hidden md:flex items-center space-x-8">
-            <a href="#featured" class="text-white no-underline opacity-90 hover:opacity-100 transition-opacity">Highlights</a>
-          <a href="#portfolio" class="text-white no-underline opacity-90 hover:opacity-100 transition-opacity">Portfolio</a>
-          <a href="#services" class="text-white no-underline opacity-90 hover:opacity-100 transition-opacity">Services</a>
-          <a id="resume-nav" href="Portfolio/Resume/Kunal_Sethi_Resume.pdf" class="text-white no-underline opacity-90 hover:opacity-100 transition-opacity" download>R&eacute;sum&eacute;</a>
-          <a href="#contact" class="text-white no-underline border border-white px-4 py-2 rounded-full hover:bg-white hover:text-black transition-colors">Let&rsquo;s Talk</a>
+
+<body>
+    <div id="video-modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="video-modal-title">
+        <div class="modal__overlay" data-modal-close></div>
+        <div class="modal__shell">
+            <button class="modal__close" type="button" aria-label="Close reel" data-modal-close>&times;</button>
+            <div class="modal__body">
+                <h2 id="video-modal-title">Showreel</h2>
+                <video id="reel-video" class="modal__video" controls preload="metadata"
+                    poster="Portfolio/3D/Chess/Render Chess 1.jpg">
+                    <source src="Bg Movie.webm" type="video/webm">
+                </video>
+            </div>
         </div>
-        <button class="md:hidden p-2 rounded-md hover:bg-white/10 transition-colors" aria-label="Open menu" id="hamburger">
-          <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+    </div>
+
+    <nav class="site-nav" id="site-nav">
+        <a class="site-nav__brand" href="#top">Kunal Sethi</a>
+        <button class="site-nav__toggle" type="button" aria-expanded="false" aria-controls="primary-nav"
+            data-nav-toggle>
+            <span class="site-nav__toggle-line"></span>
+            <span class="site-nav__toggle-line"></span>
         </button>
-      </nav>
-      <div id="navMenu" class="hidden md:hidden absolute top-full left-0 w-full bg-black/80 backdrop-blur-lg border-t border-white/10 transform -translate-y-4 opacity-0 transition-all duration-300">
-        <ul class="flex flex-col items-center space-y-6 py-8 list-none p-0 m-0">
-          <li><a href="#featured" class="text-white text-lg no-underline">Highlights</a></li>
-          <li><a href="#portfolio" class="text-white text-lg no-underline">Portfolio</a></li>
-          <li><a href="#services" class="text-white text-lg no-underline">Services</a></li>
-          <li><a id="resume-nav-mobile" href="Portfolio/Resume/Kunal_Sethi_Resume.pdf" class="text-white text-lg no-underline" download>R&eacute;sum&eacute;</a></li>
-          <li><a href="#contact" class="text-white text-lg no-underline">Let&rsquo;s Talk</a></li>
-        </ul>
-      </div>
+        <div class="site-nav__links" id="primary-nav">
+            <a href="#portfolio" class="site-nav__link">Portfolio</a>
+            <a href="#about" class="site-nav__link">About</a>
+            <a href="#contact" class="site-nav__link">Contact</a>
+        </div>
+    </nav>
+
+    <header class="hero" id="top" data-desktop-video="Bg Movie.webm" data-mobile-video="Bg Movie.webm"
+        data-hero-image="Portfolio/3D/Chess/Render Chess 1.jpg">
+        <div class="hero__media">
+            <video id="hero-video" class="hero__video" playsinline muted loop></video>
+            <div class="hero__image" id="hero-image" role="presentation"></div>
+        </div>
+        <div class="hero__overlay"></div>
+        <div class="hero__content">
+            <p class="hero__eyebrow">Cinematic Visual Designer</p>
+            <h1 class="hero__title">Kunal Sethi</h1>
+            <p class="hero__tagline">3D | VFX | Motion</p>
+            <div class="hero__actions">
+                <button class="btn btn--primary" type="button" data-open-reel>View Reel</button>
+                <a class="btn btn--ghost" href="#portfolio">Explore Work</a>
+            </div>
+        </div>
+        <div class="hero__scroll-cue" aria-hidden="true">
+            <span>Scroll</span>
+            <div class="hero__scroll-line"></div>
+        </div>
     </header>
 
-    <section id="top" class="relative min-h-screen grid place-items-center text-center overflow-hidden">
-      <div class="hero-media">
-        <video class="hero-media-element" autoplay muted loop playsinline preload="metadata" poster="assets/hero-poster.jpg"></video>
-      </div>
-      <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent z-10"></div>
-      <div class="relative z-20 w-full px-4 sm:px-6 lg:px-8">
-        <h1 id="hero-title" class="text-white font-extrabold text-6xl sm:text-8xl md:text-[9rem] m-0">KUNAL SETHI</h1>
-        <p class="hero-subtitle text-white/80 text-lg sm:text-xl md:text-2xl mt-2 mb-8 font-medium">Cinematic Visual Designer &#8226; 3D &#8226; VFX &#8226; Motion &#8226; Graphics</p>
-        <a class="bg-transparent text-white border-2 border-white font-bold py-3 px-8 rounded-full hover:bg-white hover:text-black transition-colors" href="#featured">View Work</a>
-      </div>
-      <div class="absolute bottom-6 left-1/2 transform -translate-x-1/2 w-8 h-12 border-2 border-white rounded-full opacity-60">
-        <div class="w-1 h-3 bg-white mx-auto mt-2 animate-bounce"></div>
-      </div>
-    </section>
+    <main>
+        <section id="portfolio" class="section section--portfolio">
+            <div class="section__header">
+                <p class="eyebrow">Selected Work</p>
+                <h2>Portfolio</h2>
+                <p class="section__lead">Immersive visuals crafted across 3D, VFX, and live action projects.</p>
+            </div>
+            <div class="filter-chips" role="toolbar" aria-label="Portfolio filters"></div>
+            <div id="portfolio-grid" class="portfolio-grid" aria-live="polite"></div>
+            <button class="btn btn--ghost portfolio-toggle" type="button" id="portfolio-toggle" hidden>View
+                More</button>
+            <p id="portfolio-empty" class="portfolio-empty" hidden>No projects found in this category just yet.</p>
+        </section>
 
-    <section id="featured" class="py-12 sm:py-20 w-full fade-in-section">
-      <div class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8">
-        <h2 class="section-title text-3xl sm:text-4xl font-extrabold pb-2">Highlights</h2>
-      </div>
-      <div id="highlights-container" class="relative">
-        <div id="highlights-track" class="flex overflow-x-auto scroll-snap-type-x-mandatory gap-8 px-[5vw] no-scrollbar"></div>
-        <div class="w-full max-w-4xl mx-auto mt-6 px-4 sm:px-6 lg:px-8 flex items-center justify-center gap-4">
-          <button id="highlight-prev" class="p-2 rounded-full hover:bg-white/10 transition-colors" aria-label="Previous highlight">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
-          </button>
-          <div class="w-full h-1 bg-neutral-800 rounded-full overflow-hidden">
-            <div id="highlight-progress" class="h-full bg-white rounded-full transition-all duration-300"></div>
-          </div>
-          <button id="highlight-next" class="p-2 rounded-full hover:bg-white/10 transition-colors" aria-label="Next highlight">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-          </button>
-        </div>
-        <div class="mt-4 flex justify-center">
-          <div id="highlight-joystick" class="highlight-joystick" role="slider" aria-label="Highlights speed" aria-valuemin="-100" aria-valuemax="100" aria-valuenow="0">
-            <div class="hj-track"></div>
-            <div class="hj-handle"></div>
-          </div>
-          
-        </div>
-        <div class="text-center text-neutral-400 text-xs mt-2">Scroll speed</div>
-      </div>
-    </section>
+        <section id="about" class="section section--about">
+            <div class="section__header">
+                <p class="eyebrow">Behind the Frames</p>
+                <h2>About</h2>
+            </div>
+            <div class="about">
+                <figure class="about__portrait">
+                    <img src="Portfolio/3D/Chess/Render Chess 1.jpg" alt="Portrait of Kunal Sethi" loading="lazy">
+                </figure>
+                <div class="about__body">
+                    <p>I build cinematic visual worlds that feel tactile, emotive, and human. From speculative worlds to
+                        grounded live action, everything is driven by story, pacing, and detail. I love collaborating
+                        early and often to translate ideas into unforgettable frames.</p>
+                    <ul class="about__capabilities">
+                        <li>Art Direction</li>
+                        <li>3D &amp; VFX Production</li>
+                        <li>Motion Design &amp; Compositing</li>
+                    </ul>
+                    <div class="about__actions">
+                        <a class="btn btn--primary" href="Portfolio/Resume/Kunal_Sethi_Resume.pdf" download>Download
+                            Resume</a>
+                        <span class="about__status">Currently collaborating on select cinematic projects.</span>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    <section id="portfolio" class="py-12 sm:py-20 fade-in-section">
-      <div class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 class="section-title text-3xl sm:text-4xl font-extrabold pb-2 mb-8">Portfolio</h2>
-        <div class="mb-24 aspect-video relative">
-          <div id="showcase-reel-parallax-inner" class="absolute inset-0 rounded-lg overflow-hidden group"></div>
-        </div>
-        <p class="text-neutral-400 mb-8 max-w-2xl">Selected work across Live Action, 3D, VFX, Graphics &amp; Motion. Hover to focus, click to explore.</p>
-        <div class="flex flex-wrap gap-4 mb-8">
-          <button class="px-4 py-2 rounded-full font-bold bg-white text-black" data-tab="all">All</button>
-          <button class="px-4 py-2 rounded-full font-bold bg-transparent border-2 border-neutral-700 text-neutral-300 hover:bg-neutral-800 hover:border-neutral-800" data-tab="live">Live Action</button>
-          <button class="px-4 py-2 rounded-full font-bold bg-transparent border-2 border-neutral-700 text-neutral-300 hover:bg-neutral-800 hover:border-neutral-800" data-tab="3d">3D</button>
-          <button class="px-4 py-2 rounded-full font-bold bg-transparent border-2 border-neutral-700 text-neutral-300 hover:bg-neutral-800 hover:border-neutral-800" data-tab="vfx">VFX</button>
-          <button class="px-4 py-2 rounded-full font-bold bg-transparent border-2 border-neutral-700 text-neutral-300 hover:bg-neutral-800 hover:border-neutral-800" data-tab="graphics">Graphics</button>
-          <button class="px-4 py-2 rounded-full font-bold bg-transparent border-2 border-neutral-700 text-neutral-300 hover:bg-neutral-800 hover:border-neutral-800" data-tab="motion">Motion</button>
-        </div>
-        <div id="portfolio-grid" class="portfolio-item-grid"></div>
-        <div class="flex justify-center mt-6">
-          <button id="portfolio-toggle" class="px-4 py-2 text-sm border border-neutral-700 text-neutral-300 rounded-full hover:bg-neutral-800">Show More</button>
-        </div>
-      </div>
-    </section>
-
-    <section id="services" class="py-12 sm:py-20 bg-neutral-950 fade-in-section">
-      <div class="w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 class="section-title text-3xl sm:text-4xl font-extrabold text-center mb-12 pb-2">Core Services</h2>
-        <div id="services-grid" class="grid grid-cols-1 md:grid-cols-3 gap-8"></div>
-      </div>
-    </section>
-
-    <section id="about" class="py-12 sm:py-20 fade-in-section">
-      <div class="w-full max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center gap-12">
-        <img id="about-image" src="" alt="Kunal Sethi" class="w-48 h-48 rounded-full object-cover flex-shrink-0 border-4 border-neutral-800">
-        <div>
-          <h2 id="about-title" class="section-title text-3xl font-bold pb-2"></h2>
-          <p id="about-text" class="text-neutral-400 mt-8 leading-relaxed"></p>
-        </div>
-      </div>
-    </section>
-
-    <section id="collaborations" class="py-12 sm:py-20 border-t border-neutral-800 fade-in-section">
-      <div class="w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h3 class="text-center text-neutral-500 text-sm font-semibold tracking-widest uppercase mb-8">Collaborations &amp; Personal Projects</h3>
-        <div id="collaborations-grid" class="flex justify-center items-center gap-12 sm:gap-16 flex-wrap grayscale opacity-60"></div>
-      </div>
-    </section>
-
-    <footer id="contact" class="border-t border-neutral-800 py-16 fade-in-section">
-      <div class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 id="contact-title" class="text-4xl sm:text-5xl font-bold"></h2>
-        <p id="contact-subtitle" class="text-neutral-400 mt-4 text-lg"></p>
-        <div class="flex flex-col sm:flex-row justify-center items-center gap-4 mt-8">
-          <a id="contact-email" class="bg-white text-black font-bold py-3 px-8 rounded-full hover:scale-105 transition-transform"></a>
-          <a id="contact-phone" class="border-2 border-neutral-700 text-neutral-300 font-bold py-3 px-8 rounded-full hover:bg-neutral-800 hover:border-neutral-800 transition-colors"></a>
-        </div>
-        <div class="mt-6">
-          <a id="resume-link" href="Portfolio/Resume/Kunal_Sethi_Resume.pdf" class="inline-flex items-center gap-2 border-2 border-neutral-700 text-neutral-300 font-bold py-3 px-8 rounded-full hover:bg-neutral-800 hover:border-neutral-800 transition-colors" download>
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-            <span>Download R&eacute;sum&eacute;</span>
-          </a>
-        </div>
-        <p class="text-center text-neutral-500 text-sm mt-16">&copy; <span id="year"></span> Kunal Sethi. All Rights Reserved.</p>
-      </div>
+        <section id="contact" class="section section--contact">
+            <div class="section__header">
+                <p class="eyebrow">Let's Build</p>
+                <h2>Contact</h2>
+                <p class="section__lead">Two clicks to reach me. Tell me what you're imagining and we'll make it real.
+                </p>
+            </div>
+            <div class="contact">
+                <div class="contact__info">
+                    <p class="contact__intro">Direct line for collaborations</p>
+                    <a class="contact__link contact__link--primary"
+                        href="mailto:kunaalsethii@gmail.com">kunaalsethii@gmail.com</a>
+                    <a class="contact__link" href="tel:+919717895116">+91 97178 95116</a>
+                </div>
+                <form class="contact__form" id="contact-form" novalidate method="POST"
+                    action="https://formsubmit.co/ajax/kunaalsethii@gmail.com">
+                    <input type="hidden" name="_subject" value="New cinematic collaboration inquiry" />
+                    <input type="hidden" name="_captcha" value="false" />
+                    <input type="hidden" name="_autoresponse"
+                        value="Thanks for reaching out to Kunal Sethi. I'll get back to you shortly." />
+                    <div class="form-field">
+                        <label for="contact-name">Name</label>
+                        <input id="contact-name" name="name" type="text" placeholder="Your name" required>
+                    </div>
+                    <div class="form-field">
+                        <label for="contact-email">Email</label>
+                        <input id="contact-email" name="email" type="email" placeholder="you@example.com" required>
+                    </div>
+                    <div class="form-field">
+                        <label for="contact-message">Project details</label>
+                        <textarea id="contact-message" name="message" placeholder="Tell me briefly about the project"
+                            rows="4" required></textarea>
+                    </div>
+                    <button class="btn btn--primary" type="submit">Send Message</button>
+                    <p class="form-feedback" id="form-feedback" role="status" aria-live="polite" hidden>Thanks for
+                        reaching out - I'll respond from kunaalsethii@gmail.com shortly.</p>
+                </form>
+            </div>
+        </section>
+    </main>
+    <footer class="site-footer">
+        <span class="site-footer__mark">&copy; <span id="current-year"></span> Kunal Sethi</span>
+        <a class="site-footer__link" href="mailto:kunaalsethii@gmail.com">kunaalsethii@gmail.com</a>
+        <a class="site-footer__link" href="tel:+919717895116">+91 97178 95116</a>
+        <a class="site-footer__link" href="https://www.linkedin.com" target="_blank" rel="noreferrer"
+            aria-label="LinkedIn">LinkedIn</a>
+        <a class="site-footer__link" href="https://www.instagram.com" target="_blank" rel="noreferrer"
+            aria-label="Instagram">Instagram</a>
+        <a class="site-footer__link" href="https://www.behance.net" target="_blank" rel="noreferrer"
+            aria-label="Behance">Behance</a>
     </footer>
-  </main>
 
-  <div class="cinematic-viewer-overlay" id="cinematicViewerOverlay">
-    <div class="cinematic-viewer-content" onclick="event.stopPropagation()">
-      <div class="viewer-media-container">
-        <div id="viewerMediaWrapper"></div>
-        <button id="prevBtn" class="gallery-nav-btn viewer-prev-btn" aria-label="Previous item">&#8249;</button>
-        <button id="nextBtn" class="gallery-nav-btn viewer-next-btn" aria-label="Next item">&#8250;</button>
-        <div class="viewer-progress-bar"><div id="viewerProgressIndicator" class="viewer-progress-indicator"></div></div>
-      </div>
-      <div class="viewer-info">
-        <h3 id="viewerCaption" role="status" aria-live="polite"></h3>
-        <p id="viewerDescription"></p>
-        <div id="viewerTools" class="viewer-tools" role="list" aria-label="Tools used"></div>
-      </div>
-    </div>
-    <button id="closeViewerBtn" class="absolute top-6 right-8 text-white text-4xl font-light cursor-pointer z-50" aria-label="Close viewer">&times;</button>
-  </div>
-
-  <a href="#top" id="scrollToTop" class="scroll-to-top" aria-label="Scroll to top">
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
-  </a>
-
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="Final.js"></script>
-  <script src="fix-text.js"></script>
+    <script src="projects-data.js" defer></script>
+    <script src="Final.js" defer></script>
 </body>
+
 </html>
