@@ -1,6 +1,6 @@
 ﻿// Configure available filters (use lowercase keys).
 window.portfolioConfig = window.portfolioConfig || {
-    filters: ['all', '3d', 'vfx', 'motion', 'graphics', 'live']
+    filters: ['all', '3d', 'vfx', 'motion', 'graphics', 'film']
 };
 
 window.portfolioProjects = [
@@ -103,7 +103,7 @@ window.portfolioProjects = [
         year: '2023',
         summary: 'A moody live-action short built around fragmented memory.',
         description: 'Shot as an intimate narrative exercise, the piece pairs minimal dialogue with textured color grading to lean into tension and unresolved emotion.',
-        tags: ['live'],
+        tags: ['film'],
         cover: 'Portfolio/Live Action Thumbnails/Lack Of.png',
         media: [
             { type: 'image', src: 'Portfolio/Live Action Thumbnails/Lack Of.png', caption: 'Key art still' },
@@ -118,7 +118,7 @@ window.portfolioProjects = [
         year: '2022',
         summary: 'School project music video channeling delicate, lyrical pacing.',
         description: 'Shot as an intimate narrative exercise, the piece pairs minimal dialogue with textured color grading to lean into tension and unresolved emotion.',
-        tags: ['live', 'motion'],
+        tags: ['film', 'motion'],
         cover: 'Portfolio/Live Action Thumbnails/I worry.png',
         media: [
             { type: 'embed', src: 'https://drive.google.com/file/d/12V2DCK0RVkH04rPWgCrEl03CksKhWXBr/preview', caption: 'Full music video' },
@@ -132,7 +132,7 @@ window.portfolioProjects = [
         year: '2021',
         summary: 'A tribute short celebrating curiosity and the spirit of invention.',
         description: 'Built as a passion project, Kalam blends archival-inspired graphics with grounded live-action vignettes to highlight the optimism of young makers.',
-        tags: ['live'],
+        tags: ['film'],
         cover: 'Portfolio/Live Action Thumbnails/Kalam.png',
         media: [
             { type: 'embed', src: 'https://drive.google.com/file/d/1D1Uh7e9wNRdIIeQlKKb432gEiHNBfrS-/preview', caption: 'Full short film' },
@@ -146,7 +146,7 @@ window.portfolioProjects = [
         year: '2022',
         summary: 'A short film exploring memory through gentle surrealism.',
         description: 'Shot on location with a lean crew, I directed, edited, and graded the piece to feel intimate yet cinematic. Motion graphics punctuate the narrative, guiding viewers through fragmented recollections.',
-        tags: ['live'],
+        tags: ['film'],
         cover: 'Portfolio/Live Action Thumbnails/Smriti.png',
         media: [
             { type: 'embed', src: 'https://drive.google.com/file/d/1cjhTnD9lp6dFNPByDucGBw6qx1K0tbVn/preview', caption: 'Full short film' },
@@ -160,7 +160,7 @@ window.portfolioProjects = [
         year: '2021',
         summary: 'Music, motion, and live action blending to celebrate color.',
         description: 'This hybrid piece fuses choreography with animated typography. I led direction, compositing, and color to keep the performance grounded while allowing lyrical motion graphics to float through the frame.',
-        tags: ['live', 'motion'],
+        tags: ['film', 'motion'],
         cover: 'Portfolio/Live Action Thumbnails/Rang.png',
         media: [
             { type: 'embed', src: 'https://drive.google.com/file/d/1gSdjfouUxhe669ReEXZdV3kQM_p_BtMS/preview', caption: 'Final short film' },
@@ -174,7 +174,7 @@ window.portfolioProjects = [
         year: '2021',
         summary: 'A playful VFX-meets-live-action piece about everyday magic.',
         description: 'From previs to final composite, I handled the VFX pipeline: matchmoving practical plates, simulating particles, and bringing it together with a grade that keeps the whimsy alive.',
-        tags: ['live', 'vfx'],
+        tags: ['film', 'vfx'],
         cover: 'Portfolio/Live Action Thumbnails/KeyGenie.png',
         media: [
             { type: 'embed', src: 'https://drive.google.com/file/d/1knQ2yOpeLwQ9hFicbvCN1QimoIu9b58v/preview', caption: 'Short film' },
